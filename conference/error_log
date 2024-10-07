@@ -1,0 +1,56 @@
+[06-Oct-2024 19:11:18 UTC] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 19:11:18 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:03:23 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:03:23 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 22:03:28 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/golmcsco/public_html/medtrix/conference/index.php on line 9
+[06-Oct-2024 22:03:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/golmcsco/public_html/medtrix/conference/index.php:1) in /home/golmcsco/public_html/medtrix/conference/index.php on line 14
+[06-Oct-2024 23:03:50 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:03:50 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 38
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 393
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[06-Oct-2024 22:04:52 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[06-Oct-2024 22:04:52 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[06-Oct-2024 22:04:52 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[06-Oct-2024 22:04:52 UTC] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 22:04:52 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:09:12 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:09:12 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:09:18 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:09:18 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:30 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:30 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:33 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:33 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:38 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[06-Oct-2024 23:42:38 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:33 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:33 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:49 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:49 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:55 Africa/Lagos] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 00:11:55 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 38
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 393
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[07-Oct-2024 01:32:45 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[07-Oct-2024 01:32:45 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[07-Oct-2024 01:32:45 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[07-Oct-2024 01:32:45 UTC] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 01:32:45 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 38
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 393
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[07-Oct-2024 01:58:54 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 399
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[07-Oct-2024 01:58:54 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 410
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[07-Oct-2024 01:58:54 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/golmcsco/public_html/medtrix/dashboard/header.php on line 411
+[07-Oct-2024 01:58:54 UTC] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 01:58:54 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 09:26:01 UTC] PHP Warning:  Undefined variable $refBonus in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
+[07-Oct-2024 09:26:01 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/golmcsco/public_html/medtrix/dashboard/footer.php on line 194
