@@ -721,6 +721,10 @@ if(isset($_POST["preferredDate"])){
 //UPDATE KYC FRONT
 if(isset($_FILES["idFront"]["name"])){
 
+	$kycIdType = htmlspecialchars($_POST["idType"]);
+	$kycVerify = "pending";
+	$kycDate = date("Y-m-d H:i:s");
+
 	//Check and remove previous image on folder
 	 $query=$pdo->prepare("SELECT idFront FROM users WHERE userid=:userid");
 	 $query->bindParam(":userid", $userid, PDO::PARAM_STR);
@@ -745,25 +749,37 @@ if(isset($_FILES["idFront"]["name"])){
 	  if(move_uploaded_file($tmp_name, $location))
 	  {
 	   
-	   $stmt=$pdo->prepare("UPDATE users SET idFront=(:idFront) WHERE userid=:userid");
+	   $stmt=$pdo->prepare("UPDATE users SET idFront=:idFront, kycIdType=:kycIdType, kycVerify=:kycVerify, kycDate=:kycDate WHERE userid=:userid");
 	   $stmt->bindParam(":idFront", $idFront, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycIdType", $kycIdType, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycVerify", $kycVerify, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycDate", $kycDate, PDO::PARAM_STR);
 	   $stmt->bindParam(":userid", $userid, PDO::PARAM_STR);
 	   $stmt->execute();
 	   if($stmt){
 		   
 			//Load Image
-			$sql=$pdo->prepare("SELECT idFront FROM users WHERE userid=:userid");
+			$sql=$pdo->prepare("SELECT idFront, idBack FROM users WHERE userid=:userid");
 			$sql-> bindParam(':userid', $userid, PDO::PARAM_STR);
 			$sql->execute();
 			$row=$sql->fetch();
 			$idFront = (!empty($row["idFront"]) ? "../images/kyc/".$row["idFront"]: "../images/avatar.png");
 		
+			// show continue btn if both id is uploaded
+			if(!empty($row["idFront"]) && !empty($row["idBack"])){
+				echo '
+				<script>
+				$(".continue").removeClass("display-none");
+				</script>';
+			}
+
 			echo '
 				<script>
-				$(".idFrontResult").attr("src", "'.$idFront.'");
-				$("#frontCon").removeClass("display-none");
-				$(".frontDropZone").addClass("dz-started");
+				$("#idFrontResult").attr("src", "'.$idFront.'");
+				$(".lab1").html("Re-Upload");
 
+				 $(".err1").html("<div class=\"alert alert-success alert-icon\"><em class=\"icon ni ni-check-circle\"></em> <strong>Successful</strong>. Your front <strong class=\"text-capitalize\">'.$kycIdType.'</strong> Uploaded</div>");
+	
 				</script>';
 	  }
 	   
@@ -781,6 +797,108 @@ if(isset($_FILES["idFront"]["name"])){
 	 $statement->execute();
 	 $getStmt = $statement->fetch();
 	 if(!empty($getStmt["idFront"]))
+	 {
+	  return true;
+	 }
+	 else
+	 {
+	  return false;
+	 }
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//UPDATE KYC BACK
+if(isset($_FILES["idBack"]["name"])){
+
+	$kycIdType = htmlspecialchars($_POST["idType"]);
+	$kycVerify = "pending";
+	$kycDate = date("Y-m-d H:i:s");
+
+	//Check and remove previous image on folder
+	 $query=$pdo->prepare("SELECT idBack FROM users WHERE userid=:userid");
+	 $query->bindParam(":userid", $userid, PDO::PARAM_STR);
+	 $query->execute();
+	 $prev = $query->fetch();
+	 if(!empty($prev["idBack"]))
+	 {
+		@unlink('../images/kyc/'.$prev["idBack"]);
+	 }
+	 
+	
+	 for($count=0; $count<count($_FILES["idBack"]["name"]); $count++){
+	  $idBack = $_FILES["idBack"]["name"][$count];
+	  $tmp_name = $_FILES["idBack"]['tmp_name'][$count];
+	  $file_array = explode(".", $idBack);
+	  $file_extension = end($file_array);
+	  if(file_already_up($idBack, $pdo))
+	  {
+	   $idBack = $file_array[0] . '-'. rand() . '.' . $file_extension;
+	  }
+	  $location = '../images/kyc/' . $idBack;
+	  if(move_uploaded_file($tmp_name, $location))
+	  {
+	   
+	   $stmt=$pdo->prepare("UPDATE users SET idBack=:idBack, kycIdType=:kycIdType, kycVerify=:kycVerify, kycDate=:kycDate  WHERE userid=:userid");
+	   $stmt->bindParam(":idBack", $idBack, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycIdType", $kycIdType, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycVerify", $kycVerify, PDO::PARAM_STR);
+	   $stmt->bindParam(":kycDate", $kycDate, PDO::PARAM_STR);
+	   $stmt->bindParam(":userid", $userid, PDO::PARAM_STR);
+	   $stmt->execute();
+	   if($stmt){
+		   
+			//Load Image
+			$sql=$pdo->prepare("SELECT idBack,idFront FROM users WHERE userid=:userid");
+			$sql-> bindParam(':userid', $userid, PDO::PARAM_STR);
+			$sql->execute();
+			$row=$sql->fetch();
+			$idBack = (!empty($row["idBack"]) ? "../images/kyc/".$row["idBack"]: "../images/avatar.png");
+		
+			// show continue btn if both id is uploaded
+			if(!empty($row["idFront"]) && !empty($row["idBack"])){
+				echo '
+				<script>
+				$(".continue").removeClass("display-none");
+				</script>';
+			}
+
+			echo '
+				<script>
+				$("#idBackResult").attr("src", "'.$idBack.'");
+				$(".lab2").html("Re-Upload");
+
+				 $(".err2").html("<div class=\"alert alert-success alert-icon\"><em class=\"icon ni ni-check-circle\"></em> <strong>Successful</strong>. Your front <strong class=\"text-capitalize\">'.$kycIdType.'</strong> Uploaded</div>");
+	
+				</script>';
+	  }
+	   
+	  }
+	 }
+	}
+	
+	
+	function file_already_up($idBack, $pdo)
+	{
+	 $userid = $_SESSION["user_login"];
+	 
+	 $statement = $pdo->prepare("SELECT idBack FROM users WHERE userid=:userid");
+	 $statement->bindParam(":userid", $userid, PDO::PARAM_STR);
+	 $statement->execute();
+	 $getStmt = $statement->fetch();
+	 if(!empty($getStmt["idBack"]))
 	 {
 	  return true;
 	 }

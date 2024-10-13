@@ -131,7 +131,8 @@ if(isset($_SESSION["user_login"])){
 
 
 	//Set Default Timezone
-	include("dashboard/timezoneSet.php");
+	// include("dashboard/timezoneSet.php");
+	$timezoneLabel = "Africa/Lagos";
 	$dateFormat = "dd/mm/yy";
 	$language = "English";
 	$region = $row["country"];

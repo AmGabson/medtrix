@@ -94,7 +94,6 @@ echo 'style="overflow: hidden; padding-right: 0px;"';
 >
 
 
-<?php if(isset($solana["balance"]) && isset($_GET["wallet"]) && $_GET["wallet"] =="connected"){echo '<div class="modal-backdrop fade show walletDrop"></div>';}?>
 
 
 <div class="nk-app-root">

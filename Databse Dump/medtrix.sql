@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 07, 2024 at 01:38 PM
--- Server version: 10.5.26-MariaDB
--- PHP Version: 8.3.11
+-- Host: localhost
+-- Generation Time: Oct 13, 2024 at 01:54 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `medtrix`
+-- Database: `medtrixlab`
 --
 
 -- --------------------------------------------------------
@@ -41,16 +41,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `userid`, `token`, `deposit`, `VAT`) VALUES
 (2, 1, 2502, 15400, '1'),
-(3, 2, 0, 4900, '1'),
-(5, 5, 2, 0, '1'),
-(6, 6, 0, 0, '1'),
-(7, 7, 0, 0, '1'),
-(8, 8, 0, 0, '1'),
-(9, 9, 0, 0, '1'),
-(10, 10, 0, 0, '1'),
-(11, 11, 0, 0, '1'),
-(12, 12, 0, 0, '1'),
-(13, 13, 0, 0, '1');
+(3, 2, 0, 4900, '1');
 
 -- --------------------------------------------------------
 
@@ -80,32 +71,7 @@ INSERT INTO `activities` (`id`, `userid`, `browser`, `ip`, `os`, `dateTime`, `se
 (105, 2, 'Google Chrome', '172.20.10.2', 'Windows 10.0', '2024-10-05 09:17:54', '0', 'ni-b-chrome'),
 (106, 1, 'Google Chrome', '::1', 'Mac OS X 10.15.7', '2024-10-06 16:19:43', 'xk025Nj7T3dYyuGiab4S1', 'ni-b-chrome'),
 (107, 1, 'Google Chrome', '::1', 'Mac OS X 10.15.7', '2024-10-06 17:02:55', 'k3mzpswo7SMBuQljicqA', 'ni-b-chrome'),
-(109, 1, 'Google Chrome', '105.112.109.156', 'Mac OS X 10.15.7', '2024-10-06 18:04:09', 'W8vnfgLaQCb6DtKYZFH71', 'ni-b-chrome'),
-(110, 5, 'Google Chrome', '197.210.76.249', 'Linux ', '2024-10-06 18:19:13', '0', 'ni-b-chrome'),
-(111, 5, 'Google Chrome', '197.210.76.249', 'Windows 10.0', '2024-10-06 18:39:44', 'eOvPQT0IJAar2wBU3C9q', 'ni-b-chrome'),
-(112, 6, 'Google Chrome', '102.91.102.156', 'Linux ', '2024-10-06 18:41:50', '0', 'ni-b-chrome'),
-(113, 6, 'Google Chrome', '102.91.102.156', 'Linux ', '2024-10-06 18:42:01', 'azciy58LqIxuGnCPERbd6', 'ni-b-chrome'),
-(114, 1, 'Apple Safari', '105.112.222.238', 'Mac OS X ', '2024-10-06 22:02:52', 'UTrGPzqFXusA1JRQ5Imi1', 'ni-b-safari'),
-(115, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:06:56', 'dZxo6wH2fGWDzip8N1SA', 'ni-b-chrome'),
-(116, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:11:04', 'dTLJiZR4AB5E7ewapGhg', 'ni-b-chrome'),
-(117, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:12:16', 'L5ey2b670JzGt14qiRQU', 'ni-b-chrome'),
-(118, 7, 'Google Chrome', '102.91.92.210', 'Windows 10.0', '2024-10-06 22:17:41', '0', 'ni-b-chrome'),
-(119, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:18:59', 'ObeUqNcLJt0u98HBz7G6', 'ni-b-chrome'),
-(120, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:19:33', '2ak9yTmBexWCdPERDIOq', 'ni-b-chrome'),
-(121, 7, 'Google Chrome', '102.91.92.210', 'Windows 10.0', '2024-10-06 22:19:47', 'Tl6vO3HIFb71ieNKmj9s7', 'ni-b-chrome'),
-(122, 1, 'Google Chrome', '105.112.222.238', 'Mac OS X 10.15.7', '2024-10-06 22:20:33', 'SlykUd8b7esgn2FCx6WO', 'ni-b-chrome'),
-(123, 8, 'Apple Safari', '102.89.46.69', 'Mac OS X ', '2024-10-06 22:21:09', '0', 'ni-b-safari'),
-(124, 9, 'Google Chrome', '102.91.102.193', 'Linux ', '2024-10-06 22:23:45', '0', 'ni-b-chrome'),
-(125, 9, 'Google Chrome', '102.91.102.193', 'Linux ', '2024-10-06 22:24:37', 'KjzbmvkU0APITBaSYrt39', 'ni-b-chrome'),
-(126, 8, 'Apple Safari', '102.89.46.69', 'Mac OS X ', '2024-10-06 22:26:00', 'EgUTy91jaYNPIzxOZAeu8', 'ni-b-safari'),
-(127, 8, 'Apple Safari', '102.88.68.29', 'Mac OS X ', '2024-10-06 22:33:42', 'cphnHOCkfEIlr8vFG7x9', 'ni-b-safari'),
-(128, 10, 'Google Chrome', '169.239.17.166', 'Linux ', '2024-10-07 08:37:57', '0', 'ni-b-chrome'),
-(129, 10, 'Google Chrome', '169.239.17.166', 'Linux ', '2024-10-07 08:38:35', '6BVx5G4wbvMun2l1LgkW10', 'ni-b-chrome'),
-(130, 11, 'Google Chrome', '102.91.4.214', 'Linux ', '2024-10-07 09:23:02', '0', 'ni-b-chrome'),
-(131, 11, 'Google Chrome', '102.91.4.214', 'Linux ', '2024-10-07 09:26:30', 'vkcsR6JeL5Gi73ZNrFBf11', 'ni-b-chrome'),
-(132, 12, 'Google Chrome', '102.91.93.108', 'Linux ', '2024-10-07 10:12:51', '0', 'ni-b-chrome'),
-(133, 13, 'Google Chrome', '197.211.61.19', 'Linux ', '2024-10-07 10:34:06', '0', 'ni-b-chrome'),
-(134, 13, 'Google Chrome', '197.211.61.19', 'Linux ', '2024-10-07 10:35:58', 'bjiRZltTaYc7dJhV4qM613', 'ni-b-chrome');
+(109, 1, 'Google Chrome', '::1', 'Mac OS X 10.15.7', '2024-10-11 14:08:54', 'Y2qtgz1FrlQecSdVBGy4', 'ni-b-chrome');
 
 -- --------------------------------------------------------
 
@@ -153,19 +119,7 @@ CREATE TABLE `consultations` (
   `payMethod` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `consultations`
---
 
-INSERT INTO `consultations` (`id`, `userid`, `consultId`, `sex`, `contactFrom`, `preferredDate`, `preferredTime`, `status`, `patientDesc`, `ref`, `created`, `signature`, `signDate`, `payMethod`) VALUES
-(294, 1, 1, 'male', 'Adamawa', '09/19/2024', '12:30 AM', 'pending', 'Paying for medical bills to enable me sort some cruscial issuesPaying for medical bills to enable me sort some cruscial issuesPaying for medical bills to enable me sort some cruscial issuesPaying for medical bills to enable me sort some cruscial issues', 'TXN-HT2X1J1', '2024-10-06 23:24:51', NULL, NULL, NULL),
-(295, 1, 1, 'male', 'Anambra', '09/19/2024', '12:00 AM', 'approved', 'Paying for medical bills to enable me sort some cruscial issuesPaying for medical bills to enable me sort some cruscial issuesPaying for medical bills to enable me sort some cruscial issues', 'TXN-5KFIY01', '2024-10-06 23:25:44', '42aYgeqeB2NEgujyjAc73sui5eZHTDYgsZ4oHoMg8yj8iKQekfE46b24MtjX1Pnsogu9wWwfJxmzgeWbvHGHAWPHRjJzTNDQoxYdfP8H4LuzrpKoDL9wDL6JSzTZbGPmThTxPmQU8oVc1pcn6MEnBTCsNSoEDscuufzenc25gfip', '2024-10-06 23:26:40', 'solana');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `consultationType`
---
 
 CREATE TABLE `consultationType` (
   `consultId` int(11) NOT NULL,
@@ -191,7 +145,7 @@ INSERT INTO `consultationType` (`consultId`, `type`, `subText`, `desc`, `icon`, 
 (1, 'video', 'Book for a video Consultation', 'Speak on live video with a Medical Specialists waiting to solve your health related problems. Book video appointment now.', 'ni-video', 'bg-danger', '4300', '-10', '0.02', '-50', '15 Minutes', '1500', NULL),
 (2, 'call', 'Talk with a Specialist via Mobile Call', 'You can engage in a live call consultation with a healthcare professional which could last for over 20 minutes and more.', 'ni-call-alt', 'bg-secondary', '2300', '-25', '0.01', '-50', '15 Minutes', '1000', '800'),
 (3, 'text', 'Communicate with Specialist via Chat System', 'There is a provision to communicate to healthcare specialist via an online chat system. Use this option today, cheaper and faster.', 'ni-chat-circle', 'bg-warning', '1500', '-30', '0.008', '-50', '20 Minutes', '900', '500'),
-(4, 'physical', 'One-on-one Consultation Service', 'Get to meet a doctor or a specialist one-on-one at a scheduled time of preference\r\n', 'ni-users', 'bg-primary', '9800', '-30', '0.2', '-50', '1hr 30 Minutes', '5000', '1500');
+(4, 'physical', 'One-on-one Consultation Service', 'Get to meet a doctor or a specialist one-on-one at a scheduled time of preference\n', 'ni-users', 'bg-primary', '9800', '-30', '0.2', '-50', '1hr 30 Minutes', '5000', '1500');
 
 -- --------------------------------------------------------
 
@@ -320,7 +274,7 @@ CREATE TABLE `leaderboard` (
 
 INSERT INTO `leaderboard` (`id`, `userid`, `gameId`, `trials`, `timeFrame`, `gameLevel`, `dateTime`) VALUES
 (1, 1, 1, '24', '21', '1', '2024-10-05 01:37:50'),
-(2, 5, 1, '32', '34', '2', '2024-10-06 18:21:23'),
+(2, 1, 1, '40', '40', '2', '2024-09-14 15:46:50'),
 (3, 2, 1, '45', '45', '3', '2024-09-01 20:25:43');
 
 -- --------------------------------------------------------
@@ -451,17 +405,8 @@ CREATE TABLE `preference` (
 --
 
 INSERT INTO `preference` (`id`, `timezone`, `timezoneLabel`, `language`, `dateFormat`, `region`, `displayName`, `userid`, `saveActivity`, `skin`, `headerFixed`, `uiDesign`, `headerBg`) VALUES
-(1, 'Africa/Lagos', 'Lagos (GMT+01:00)', 'English', 'dd/mm/yy', 'Nigeria', 'username', 1, 'yes', 'light-mode', NULL, 'ui-bordered', NULL),
-(2, 'Europe/Berlin', '(GMT +2:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 2, 'yes', NULL, NULL, NULL, NULL),
-(4, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 5, 'yes', NULL, NULL, NULL, NULL),
-(5, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 6, 'yes', NULL, NULL, NULL, NULL),
-(6, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 7, 'yes', NULL, NULL, NULL, NULL),
-(7, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 8, 'yes', NULL, NULL, NULL, NULL),
-(8, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 9, 'yes', NULL, NULL, NULL, NULL),
-(9, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 10, 'yes', NULL, NULL, NULL, NULL),
-(10, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 11, 'yes', NULL, NULL, NULL, NULL),
-(11, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 12, 'yes', NULL, NULL, NULL, NULL),
-(12, 'UTC', '(GMT +0:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 13, 'yes', NULL, NULL, NULL, NULL);
+(1, 'Africa/Lagos', 'Lagos (GMT+01:00)', 'English', 'dd/mm/yy', 'Nigeria', 'username', 1, 'yes', 'light-mode', NULL, NULL, NULL),
+(2, 'Europe/Berlin', '(GMT +2:00)', 'English', 'dd/mm/yy', 'Nigeria', 'fullName', 2, 'yes', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -528,15 +473,6 @@ CREATE TABLE `solana` (
   `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `solana`
---
-
-INSERT INTO `solana` (`id`, `userid`, `balance`, `walletAddress`, `privateKey`, `created`) VALUES
-(54, 5, '0.0', 'GHFnTYPSpYmUHc53DTddb279wcELWepHgRq35JNi6RNR', '3fhUSxaFmvbjMKkFA4YvQna4DtJhE3ypFPmhtQA1hHE2CbKVGDPpkKtjCtqgACvcTxavFz4xWVKk1TfgAHQ4wVLu', '2024-10-06 18:43:14'),
-(55, 8, '0.0', 'Aa4KyrVRSib5cuAPcrU8Q2t5NEWXiik4NTKvyYMtgzrk', '4jD6rnGDmJZQb1NzoFDy1c1CQQRoJ594Uths2bDBsaq2QZY7vBdrRvyqoTaq2AsKsNNRogbzzDnV6PkiNUQJxakg', '2024-10-06 22:25:18'),
-(56, 13, '0.0', 'BEarAcCQhRA4zDTtDZeF6vCgpWCcvP6UF2KZfcv6Y6xG', 'PPefPr5ub63S2f33Pg3PTeTkCRR15ZK3SLbgs92ENTdPdGdT18bj9rrSXnbBDNr6bLx1dSBhAFWFD7DMzDyoaKS', '2024-10-07 10:35:56');
-
 -- --------------------------------------------------------
 
 --
@@ -553,13 +489,6 @@ CREATE TABLE `solanaParams` (
   `consultType` varchar(100) NOT NULL,
   `amount` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `solanaParams`
---
-
-INSERT INTO `solanaParams` (`id`, `consultId`, `userid`, `userImage`, `adminWallet`, `user`, `consultType`, `amount`) VALUES
-(243, 295, 1, '../images/users/—Pngtree—letter eb logo be monogram_5674923.png', '9HvPQrAs6yXrdiqSSwbuix8bqXUtCtJWpKFdAxEKjeDy', 'Augustine Gabriel', 'video', '0.02');
 
 -- --------------------------------------------------------
 
@@ -620,25 +549,20 @@ CREATE TABLE `users` (
   `passUpdateDate` varchar(200) DEFAULT NULL,
   `state` varchar(200) DEFAULT NULL,
   `idFront` varchar(200) DEFAULT NULL,
-  `idBack` varchar(200) DEFAULT NULL
+  `idBack` varchar(200) DEFAULT NULL,
+  `kycIdType` varchar(100) DEFAULT NULL,
+  `kycVerify` varchar(100) DEFAULT NULL,
+  `kycDate` varchar(100) DEFAULT NULL,
+  `kycApprovedDate` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `fullName`, `email`, `username`, `password`, `profilepix`, `country`, `residentialCountry`, `city`, `address`, `dob`, `phone`, `created`, `type`, `disable`, `invite_ref`, `siteLockPassCode`, `passwordReset`, `verify`, `bank`, `accountNumber`, `passUpdateDate`, `state`, `idFront`, `idBack`) VALUES
-(1, 'Augustine Gabriel', 'gabson2939@gmail.com', 'gabson', '$2y$10$f/l.Bxxb49JeacElc72Reus05WpenuT47xctwDGVg3swerLt1jm0C', '—Pngtree—letter eb logo be monogram_5674923.png', 'Nigeria', 'Nigeria', 'Lafia', 'Behind UBA', '05/09/1997', '09072900561', '2024-08-30 07:19:12', NULL, NULL, 'f5431_1', NULL, NULL, NULL, '', '', '2024-09-20 01:38:03', 'Nasarawa', '', ''),
-(2, 'Samuel James', 'sam@gmail.com', 'Sam', '$2y$10$saK4XhHy4cPXft/uW5X8rORYabxNiHgz456nYxjSSDURZxA/MbBNy', 'sam.jpg', 'Nigeria', NULL, NULL, 'Behind UBA', '05/09/1997', NULL, '2024-08-31 14:34:31', NULL, NULL, 'A5dC2_2', NULL, NULL, NULL, NULL, NULL, NULL, 'Lagos', '', ''),
-(5, 'Abubakar Mohammed', 'abubakarsadiqimohammed@gmail.com', 'Ysd', '$2y$10$z90bsyk.XliHygxyq0NVzuzjaQvhC4Qhuu8/034zzmuZSgCAVb/Pm', 'rerfds.JPG', 'Nigeria', 'Nigeria', 'Lafia', 'HOUSE NUMBER 15 GSS LAFIA QUARTERS', '10/01/1996', '08129332174', '2024-10-06 18:19:06', NULL, NULL, '5F2ae_5', NULL, NULL, NULL, 'Opay', '8129332174', NULL, NULL, NULL, NULL),
-(6, 'Agite', 'ashrahson45@gmail.com', 'Bentop4life', '$2y$10$hCOELronaWZyQZcaw3JF6OL69QGsX4y62Dkqap.8urfD4aBhuBkyS', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-06 18:41:43', NULL, NULL, '13F52_6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'Peace Kpaba Danson', 'peacekpaba@gmail.com', 'peacekpaba', '$2y$10$KqAQqOfegFfizHsgZ66MXugMssDV7uSqU7iB/D3DSnY4DZjn4XTeK', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-06 22:17:34', NULL, NULL, 'E43fF_7', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'Emmanuel Oparaugo', 'mawuli.ceo@gmail.com', 'Mawuli_Ceo', '$2y$10$VPpjlthlxLqUihtAiabjfOd78/qbVLICbdeELKWMB2G8GScMv6hgm', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-06 22:21:03', NULL, NULL, 'bB3AC_8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'Benjamin James', 'bennamite@gmail.com', 'bennamite', '$2y$10$RMWrKKRPgWH/tgFf7IseoOs.aX1xwop3N7gWKTIgQQxR1EpJaXQ/m', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-06 22:23:39', NULL, NULL, 'ea4C1_9', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'Stephen Peter', 'peterstephen331@gmail.com', 'Stevelinks', '$2y$10$YVDD215l.QUuMbzwxRnjaeqgX6sn3Ku9GKyjI/UVnCCXJiiy6W4Ye', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-07 08:37:51', NULL, NULL, 'AE1dF_10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'Attah Faithfulness', 'attahfaithfulness44@gmail.com', 'Aragaki', '$2y$10$RwDEsBVbdi72zbNgiWrqQuT0x3VKw5buKRBFH8s6X1NZ5.Chq7cY6', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-07 09:22:56', NULL, NULL, 'f1F64_11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'Muhammad Junaidu', 'junaidumuhammad169@gmail.com', 'Activeco', '$2y$10$mqCb1m9KpTnEiK/lSBc2.OzWXLgQAnpi2gp/xiiEVO0YkJG8yf.xO', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-07 10:12:44', NULL, NULL, 'e4Cd1_12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Adejor Gabriel', 'adejorgabriel20@gmail.com', 'Adejorgabriel001', '$2y$10$6LZK7dOzK0HKZZgjfrpSl.6a.JacFRNp85W00THm3Cn58OkFyObJC', '', 'Nigeria', NULL, NULL, NULL, NULL, NULL, '2024-10-07 10:33:59', NULL, NULL, 'af4c6_13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`userid`, `fullName`, `email`, `username`, `password`, `profilepix`, `country`, `residentialCountry`, `city`, `address`, `dob`, `phone`, `created`, `type`, `disable`, `invite_ref`, `siteLockPassCode`, `passwordReset`, `verify`, `bank`, `accountNumber`, `passUpdateDate`, `state`, `idFront`, `idBack`, `kycIdType`, `kycVerify`, `kycDate`, `kycApprovedDate`) VALUES
+(1, 'Augustine Gabriel', 'gabson2939@gmail.com', 'gabson', '$2y$10$f/l.Bxxb49JeacElc72Reus05WpenuT47xctwDGVg3swerLt1jm0C', '—Pngtree—letter eb logo be monogram_5674923.png', 'Nigeria', 'Nigeria', 'Lafia', 'Behind UBA', '05/09/1997', '09072900561', '2024-08-30 07:19:12', NULL, NULL, 'f5431_1', NULL, NULL, NULL, '', '', '2024-09-20 01:38:03', 'Nasarawa', 'pngegg.png', 'pngwing.com.png', 'passport', 'approved', '2024-10-12 23:59:27', NULL),
+(2, 'Samuel James', 'sam@gmail.com', 'Sam', '$2y$10$saK4XhHy4cPXft/uW5X8rORYabxNiHgz456nYxjSSDURZxA/MbBNy', 'sam.jpg', 'Nigeria', NULL, NULL, 'Behind UBA', '05/09/1997', NULL, '2024-08-31 14:34:31', NULL, NULL, 'A5dC2_2', NULL, NULL, NULL, NULL, NULL, NULL, 'Lagos', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -793,13 +717,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -811,7 +735,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `consultations`
 --
 ALTER TABLE `consultations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT for table `consultationType`
@@ -877,7 +801,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `preference`
 --
 ALTER TABLE `preference`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `referral`
@@ -895,13 +819,13 @@ ALTER TABLE `sicknesses`
 -- AUTO_INCREMENT for table `solana`
 --
 ALTER TABLE `solana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `solanaParams`
 --
 ALTER TABLE `solanaParams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- AUTO_INCREMENT for table `transactions`
@@ -913,7 +837,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
