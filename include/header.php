@@ -1,7 +1,15 @@
 <!-- nprogress -->
+<link rel="stylesheet" href="assets/css/SearchAlgoliaInput.css">
 <script src="assets/js/nprogress.min.js"></script>
 <link rel="stylesheet" href="assets/css/nprogress.min.css">
 
+
+<?php 
+//Modals
+include "include/modals.php";
+?>
+<!-- Modal Backdrop -->
+<div class="backdrop display-none"></div>
 
 
 

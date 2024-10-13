@@ -195,10 +195,60 @@ include "include/sidebar.php";
 
 
 
+<section class="py-15 md:pt-[150px]">
+<div class="container" style="max-width: 1166px;">
+<div class="grid grid-cols-12 items-center lg:mx-12 2xl:mx-0">
+<div class="order-2 col-span-12 md:order-1 md:col-span-6">
+<h1 class="text-balance text-center text-6xl font-semibold leading-tighter tracking-tighter md:text-left xl:text-[67px]"> About Medtrix And <span class="inline-block bg-gradient-to-r from-[#617efe] to-blue-300 bg-clip-text text-transparent"> Why Us...</span></h1>
+
+<div class="mx-auto mt-8 flex flex-row  items-center gap-4 md:flex-row lg:mx-0 lg:max-w-sm">
+<a class="btn btn-base btn-primary py-4" href="register.php">
+<span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> Join Us Today</span></a>
+
+<a class="btn btn-base btn-secondary has-icon py-4" href="dashboard/kyc.php">
+<svg height="15" viewBox="0 0 18 19" class="mr-2">
+<g class="fill-current" fill-rule="nonzero">
+<path d="M13.284 10.215a.672.672 0 0 0-.475-.823L6.123 7.601a.672.672 0 1 0-.348 1.298l6.686 1.791a.672.672 0 0 0 .823-.475zM5.427 10.197a.672.672 0 1 0-.347 1.298l4.06 1.088a.672.672 0 1 0 .348-1.298l-4.06-1.088z"></path>
+<path d="M5.283 16.837l-2.17-.581a1.346 1.346 0 0 1-.951-1.646L5.223 3.185a1.346 1.346 0 0 1 1.646-.95l7.98 2.138c.716.192 1.143.93.95 1.646l-1.069 3.992a.672.672 0 1 0 1.298.348l1.07-3.992a2.691 2.691 0 0 0-1.9-3.292L7.216.937a2.691 2.691 0 0 0-3.292 1.9L.864 14.262a2.691 2.691 0 0 0 1.9 3.292l2.171.581a.672.672 0 1 0 .348-1.298z"></path>
+<path d="M16.425 13.477a2.018 2.018 0 0 0-2.753-.738l-4.517 2.6a.672.672 0 0 0-.235.228l-1.46 2.347a.672.672 0 0 0 .576 1.027l2.814-.024a.672.672 0 0 0 .33-.09l4.507-2.596a2.018 2.018 0 0 0 .738-2.754zm-5.763 4.098l-1.416.012.726-1.167 3.048-1.755.672 1.164-3.03 1.746zm4.354-2.508l-.16.092-.672-1.164.16-.092a.673.673 0 0 1 .672 1.164zM13.505 6.796L6.819 5.004a.672.672 0 1 0-.348 1.299l6.686 1.791a.672.672 0 1 0 .348-1.298z"></path>
+</g>
+</svg><span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> Update KYC </span>
+</a>
+</div>
+</div>
+<div class="order-1 col-span-12 translate-x-[-30px] md:order-2 md:col-span-6 md:translate-x-0">
+<img src="images/about-img.png" alt=""></div>
+</div>
+</div>
 
 
 
-<section><div class="container"><div class="mx-auto max-w-xl text-center text-white"><header class="container mx-auto mb-4 max-w-[800px] px-6 pb-4 text-center text-white"><h3 class="inherits-color relative z-10 text-balance text-3xl font-semibold leading-tighter tracking-tight md:text-6xl">About Medtrix</h3><!----></header>
+
+
+<?php
+$stmt = $pdo->prepare("SELECT * FROM content");
+$stmt->execute();
+$content = $stmt->fetch();
+?>
+
+<div class="user-content md:m-auto md:w-4/5 md:px-6 mt-10">
+<div class="inherits-color mt-5 text-2lg text-gray-300">
+    
+<?php echo $content["about"];?>
+
+</div>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
 
 
 

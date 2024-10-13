@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="assets/css/FlashDialog-B92EWtKV.css">
 
+<?php 
+//get solana Wallet
+$stmt=$pdo->prepare("SELECT * FROM solana WHERE userid = :userid");
+$stmt->bindParam("userid", $userid, PDO::PARAM_STR);
+$stmt->execute();
+$exists = $stmt->rowCount();
+$solona=$stmt->fetch();
+?>
+
 
 <div id="result"></div>
 <dialog id="connect-wallet-modal" class="overflow-auto hide-scrollbar bg-card-800 py-6 text-white md:my-auto md:rounded-2xl md:border border-card-300  md:py-9 md:shadow-lg" style="width: 100%; --0e351c3d: 600px; --b3ad0d3c: max-content; --7460586e: slideUp; max-height: calc(var(--vh, 1vh) * 100);

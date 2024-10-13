@@ -136,13 +136,6 @@ cursor: nwse-resize;
 
 
 <?php 
-//get solana Wallet
-$stmt=$pdo->prepare("SELECT * FROM solana WHERE userid = :userid");
-$stmt->bindParam("userid", $userid, PDO::PARAM_STR);
-$stmt->execute();
-$exists = $stmt->rowCount();
-$solona=$stmt->fetch();
-
 //get Token and account Bal
 $stmt=$pdo->prepare("SELECT * FROM account WHERE userid = :userid");
 $stmt->bindParam("userid", $userid, PDO::PARAM_STR);

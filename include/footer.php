@@ -107,13 +107,13 @@ href="" transparent="" target="_blank">
 </div>
 <div class="flex-1 gap-x-8 md:flex md:flex-1 md:justify-end lg:max-w-[500px]">
 <div class="flex-1 mobile:mb-6">
-<h5 class="mb-2 font-kanit font-bold uppercase text-white lg:mb-4">Learn</h5>
+<h5 class="mb-2 font-kanit font-bold uppercase text-white lg:mb-4">Platform</h5>
 <ul class="inline-bulleted-list mx-auto w-3/4 text-sm leading-loose text-card-200 lg:mx-0">
 <li><a class="transition-all hover:text-white" href="register.php"> Sign Up </a></li>
 <li><a class="transition-all hover:text-white" href="login.php"> Sign In </a></li>
 <li><a class="transition-all hover:text-white"> Pricing </a></li>
 <li><a class="transition-all hover:text-white" href="specialist.php"> Doctors </a></li>
-<li><a class="transition-all hover:text-white" href=""> Medtrix Path </a></li>
+<li><a class="transition-all hover:text-white" href="about.php">About Medtrix </a></li>
 <li><a class="transition-all hover:text-white" href=""> Topics </a></li>
 </ul>
 </div>

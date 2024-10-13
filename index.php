@@ -44,7 +44,6 @@ rel="stylesheet">
 <link rel="stylesheet" href="assets/css/LazyImg-7.css">
 <link id="skin-default" rel="stylesheet" href="assets/css/ni-icons.css">
 <link rel="stylesheet" href="assets/css/app-_P3ukd9A.css">
-<link rel="stylesheet" href="assets/css/SearchAlgoliaInput.css">
 
 
 
@@ -79,8 +78,6 @@ include "sections/doctors.php";
 // Category Drops
 include "sections/med_categories.php";
 
-//Modals
-include "include/modals.php";
 
 ?>
 
@@ -89,7 +86,7 @@ include "include/modals.php";
 	echo '<div class="backdrop"></div>';
 }?>
 
-<div class="backdrop display-none"></div>
+
  
 </main>
 </div>
@@ -103,9 +100,20 @@ include "include/modals.php";
 <!-- Autotype Js -->
 <script src="assets/js/typed.min.js"></script>
 
-
-
 <?php include "include/footer.php";?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 
 // Autotype Heading text
@@ -115,6 +123,104 @@ include "include/modals.php";
 //     backSpeed: 30,
 //     loop: true,
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+// Scroll Games
+let userScroll = document.getElementById("gameScroll"); // the container
+let forward = document.getElementById("scrollFrontBtn"); // Forward Scroll Btn
+let backward = document.getElementById("scrollBackBtn"); // Back Scroll Btn
+let progressBar = document.getElementById("progress-bar"); //progress Bar
+
+let forwardInterval;
+let backwardInterval;
+let scroller = 1;
+let percentScroll = 0;
+
+// Scroll forward on mouse enter
+forward.addEventListener("mouseenter", () => {
+
+  forwardInterval = setInterval(() => {
+        // get percent scroll and update progress bar
+        percentScroll = (userScroll.scrollLeft / (userScroll.scrollWidth - userScroll.clientWidth)) * 100;
+        progressBar.value = percentScroll;
+
+    if (userScroll.scrollLeft >= userScroll.scrollWidth - userScroll.clientWidth) {
+      clearInterval(forwardInterval);
+      //Add disable prop on forward Btn
+      forward.disabled = true;
+    } else {
+      userScroll.scrollLeft += scroller;
+      //remove disable prop on backward Btn
+      backward.disabled = false;
+    }
+  }, 5);
+});
+
+// on mouse out, stop scroll
+forward.addEventListener("mouseleave", () => {
+  clearInterval(forwardInterval);
+});
+
+
+
+
+// Scroll Backward on mouse enter
+backward.addEventListener("mouseenter", () => {
+    
+  backwardInterval = setInterval(() => {
+
+    // get percent scroll and update progress bar
+    percentScroll = (userScroll.scrollLeft / (userScroll.scrollWidth - userScroll.clientWidth)) * 100;
+    progressBar.value = percentScroll;
+
+    if (userScroll.scrollLeft <= 0) {
+      clearInterval(backwardInterval);
+       //Add disable prop on backward Btn
+       backward.disabled = true;
+    } else {
+      userScroll.scrollLeft -= scroller;
+      //remove disable prop on forward Btn
+      forward.disabled = false;
+    }
+  }, 5);
+});
+
+// on mouse out, stop scroll
+backward.addEventListener("mouseleave", () => {
+  clearInterval(backwardInterval);
+});
+
+
+
+
+// Onclick of progress bar
+progressBar.addEventListener("click", (e) => {
+    let progressbBar = e.target;
+    let rect = progressbBar.getBoundingClientRect();
+    let clickPosition = e.clientX - rect.left;
+    let progressBarWidth = progressbBar.offsetWidth;
+
+    let progressBarPadding = parseInt(getComputedStyle(progressbBar).paddingLeft);
+
+    let scrollPosition = ((clickPosition - progressBarPadding) / (progressBarWidth - 2 * progressBarPadding)) * (userScroll.scrollWidth - userScroll.clientWidth);
+    userScroll.scrollLeft = scrollPosition;
+
+    // get percent scroll and update progress bar
+    percentScroll = (userScroll.scrollLeft / (userScroll.scrollWidth - userScroll.clientWidth)) * 100;
+    progressBar.value = percentScroll;
+
+  });
+
 
 </script>
 
