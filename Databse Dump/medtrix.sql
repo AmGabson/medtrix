@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2024 at 01:54 AM
+-- Generation Time: Oct 14, 2024 at 12:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -119,7 +119,29 @@ CREATE TABLE `consultations` (
   `payMethod` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `consultations`
+--
 
+INSERT INTO `consultations` (`id`, `userid`, `consultId`, `sex`, `contactFrom`, `preferredDate`, `preferredTime`, `status`, `patientDesc`, `ref`, `created`, `signature`, `signDate`, `payMethod`) VALUES
+(272, 1, 1, 'male', 'Abia', '09/20/2024', '12:00 AM', 'approved', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-EYP7WB1', '2024-10-04 12:46:02', NULL, '2024-10-04 04:15:02', 'solana Qr'),
+(273, 1, 2, 'male', 'Abia', '09/20/2024', '12:00 AM', 'declined', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-BECJ0K1', '2024-10-04 11:28:27', NULL, NULL, NULL),
+(274, 1, 4, 'male', 'Abia', '09/20/2024', '12:00 AM', 'pending', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-0YBCLU1', '2024-10-04 12:58:17', NULL, NULL, NULL),
+(275, 1, 1, 'male', 'Abia', '09/20/2024', '12:00 AM', 'pending', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-TRL2NP1', '2024-10-04 20:51:54', NULL, NULL, NULL),
+(276, 1, 1, 'female', 'Anambra', '09/20/2024', '12:00 AM', 'approved', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-DUXOBZ1', '2024-10-05 00:41:07', '2hELi1rsr1vn6qjD2U3Tyt8Dr3ft7nskEnehW6eRik6XUtySm75VWPKe6AwFKqYNUneNSdQRvjweiJGB1K49e6gsw3HNQMa7enHzdMCbgmHcFrBck43H9tpBMAq3tGwZnT6JaiSuxNgxJntVeUsNRFBZebEdTae6rdXesGC3MXgDDi', '2024-10-05 02:4608', NULL),
+(277, 1, 1, 'male', 'Abia', '09/20/2024', '12:00 AM', 'approved', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-ETD06I1', '2024-10-05 00:56:51', NULL, '2024-10-05 02:5717', 'token'),
+(278, 1, 1, 'male', 'Abia', '09/20/2024', '12:00 AM', 'pending', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-F47OJM1', '2024-10-05 00:57:37', NULL, NULL, NULL),
+(279, 1, 1, 'male', 'Abia', '09/20/2024', '12:00 AM', 'pending', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-OWCVNZ1', '2024-10-05 00:58:43', NULL, NULL, NULL),
+(280, 1, 1, 'female', 'Abia', '09/20/2024', '12:00 AM', 'approved', 'form-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize\nform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resizeform-control no-resize', 'TXN-24NBCX1', '2024-10-05 11:11:37', '2hwHEmwHyafCqACFnQQ1U6fAef9JouqwzWSTGTsozZybr9oaBnjB7SaKgpN98rqV9swrBcwHVQYPd7waqk7nATb3Hgd6avUSatJ1ZuuBB8uHfmf5XpYM37N4kccTDUttnVrhoYebmDdmLXqjPXmPmhwEgs7fZCfLdR', '2024-10-05 13:1318', NULL),
+(281, 1, 1, 'male', 'Adamawa', '10/02/2024', '12:30 AM', 'pending', 'You can engage in a live call consultation with a healthcare professional which could last for over 20 minutes and more.', 'TXN-PK3GHV1', '2024-10-06 16:13:48', NULL, NULL, NULL),
+(282, 1, 1, 'male', 'Adamawa', '08/30/2024', '12:00 AM', 'pending', 'You can engage in a live call consultation with a healthcare professional which could last for over 20 minutes and more.', 'TXN-B8M1EC1', '2024-10-06 16:15:41', NULL, NULL, NULL),
+(283, 1, 2, 'male', 'Akwa Ibom', '08/31/2024', '12:00 AM', 'pending', 'TransferTransferTransferTransferTransferTransferTransferTransferTransferTransferTransferTransferTransferTransferTransfer', 'TXN-XZMWQ21', '2024-10-06 16:19:10', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consultationType`
+--
 
 CREATE TABLE `consultationType` (
   `consultId` int(11) NOT NULL,
@@ -146,6 +168,28 @@ INSERT INTO `consultationType` (`consultId`, `type`, `subText`, `desc`, `icon`, 
 (2, 'call', 'Talk with a Specialist via Mobile Call', 'You can engage in a live call consultation with a healthcare professional which could last for over 20 minutes and more.', 'ni-call-alt', 'bg-secondary', '2300', '-25', '0.01', '-50', '15 Minutes', '1000', '800'),
 (3, 'text', 'Communicate with Specialist via Chat System', 'There is a provision to communicate to healthcare specialist via an online chat system. Use this option today, cheaper and faster.', 'ni-chat-circle', 'bg-warning', '1500', '-30', '0.008', '-50', '20 Minutes', '900', '500'),
 (4, 'physical', 'One-on-one Consultation Service', 'Get to meet a doctor or a specialist one-on-one at a scheduled time of preference\n', 'ni-users', 'bg-primary', '9800', '-30', '0.2', '-50', '1hr 30 Minutes', '5000', '1500');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content`
+--
+
+CREATE TABLE `content` (
+  `id` int(11) NOT NULL,
+  `about` text NOT NULL,
+  `twitter` varchar(100) NOT NULL,
+  `instagram` varchar(100) NOT NULL,
+  `facebook` varchar(100) NOT NULL,
+  `youtube` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `content`
+--
+
+INSERT INTO `content` (`id`, `about`, `twitter`, `instagram`, `facebook`, `youtube`) VALUES
+(1, '\r\n<a href=\"index.php\" class=\"text-blue-400\">Medtrix</a> is a pioneering Telemedicine Platform designed to democratize access to healthcare services, especially in underserved and remote regions. Our mission is to provide affordable, efficient, and high-quality healthcare solutions, starting with Africa, where healthcare inequalities are most prevalent. Through innovative technology, we are reshaping how patients interact with healthcare specialists, offering seamless consultations without the need for in-person visits.\r\n\r\n<p class=\"mt-4\">\r\nAt the core of our platform is a tokenized system that significantly reduces the financial burden typically associated with medical services. By leveraging decentralized blockchain technology, Medtrix bridges traditional payment gateways with secure crypto transactions, empowering users with more flexible and accessible payment options for healthcare services. This unique approach eliminates geographical barriers while making medical care financially inclusive.\r\n\r\n<h2 class=\"mt-10 mb-2 text-white font-semibold leading-tighter tracking-tighter md:text-left xl:text-[67px]\" style=\"font-size:25px\"> Our <span class=\"inline-block bg-gradient-to-r from-[#617efe] to-blue-300 bg-clip-text text-transparent\"> Services</span></h2>\r\n\r\nMedtrix goes beyond telemedicine. We offer a fully integrated e-commerce drugstore, providing swift delivery of both conventional and traditional medicines, medical equipment, lab apparatus, and pharmaceutical supplies. Our 24/7 dispatch system ensures that medical necessities are delivered directly to specified locations, eliminating the hassle of locating physical drugstores. We prioritize accessibility for all, regardless of geographic constraints.\r\n\r\n\r\n<h2 class=\"mt-10 mb-2 text-white font-semibold leading-tighter tracking-tighter md:text-left xl:text-[67px]\" style=\"font-size:25px\"> Solving Critical <span class=\"inline-block bg-gradient-to-r from-[#617efe] to-blue-300 bg-clip-text text-transparent\"> Challenges</span></h2>\r\n\r\nWe recognize the pressing healthcare challenges faced by individuals in remote and underserved communities. Delayed services, limited access to specialists, and the high cost of medical care are common issues. Medtrix addresses these challenges by offering fast, reliable healthcare consultations with minimal financial barriers. Our tokenized reward system further reduces medical expenses, making healthcare services more affordable. \r\n\r\n<p class=\"mt-4\">\r\nThrough Medtrix\'s unique \"Med Games\" users can engage in health-based challenges and earn rewards or airdrops, effectively lowering their medical bills while promoting healthier lifestyles. This gamified approach not only makes healthcare more engaging but also ensures that even the most disadvantaged individuals have access to essential services.\r\n\r\n\r\n<h2 class=\"mt-10 mb-2 text-white font-semibold leading-tighter tracking-tighter md:text-left xl:text-[67px]\" style=\"font-size:25px\"> Our <span class=\"inline-block bg-gradient-to-r from-[#617efe] to-blue-300 bg-clip-text text-transparent\"> Vision</span></h2>\r\n\r\nAt Medtrix, we believe that healthcare is a right, not a privilege. Our goal is to ensure that everyone, regardless of location or financial standing, can access quality healthcare. We are committed to driving equal medical opportunities for all by continuously innovating and leveraging technology to create sustainable healthcare solutions that break down financial and geographic barriers.\r\n<p class=\"mt-4\">\r\n\r\n<a href=\"register.php\">Join us</a> as we embark on a journey to revolutionize healthcare delivery across Africa and beyond, creating a world where healthcare is accessible to all.\r\n', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -273,7 +317,7 @@ CREATE TABLE `leaderboard` (
 --
 
 INSERT INTO `leaderboard` (`id`, `userid`, `gameId`, `trials`, `timeFrame`, `gameLevel`, `dateTime`) VALUES
-(1, 1, 1, '24', '21', '1', '2024-10-05 01:37:50'),
+(1, 1, 1, '20', '16', '1', '2024-10-13 01:02:59'),
 (2, 1, 1, '40', '40', '2', '2024-09-14 15:46:50'),
 (3, 2, 1, '45', '45', '3', '2024-09-01 20:25:43');
 
@@ -602,6 +646,12 @@ ALTER TABLE `consultationType`
   ADD PRIMARY KEY (`consultId`);
 
 --
+-- Indexes for table `content`
+--
+ALTER TABLE `content`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `control`
 --
 ALTER TABLE `control`
@@ -742,6 +792,12 @@ ALTER TABLE `consultations`
 --
 ALTER TABLE `consultationType`
   MODIFY `consultId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `content`
+--
+ALTER TABLE `content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `control`
