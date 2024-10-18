@@ -7,7 +7,8 @@ ini_set('display_errors', 1);
 
 if(isset($_POST["category"])){
 
-$category = $_POST["category"];
+$category = htmlspecialchars($_POST["category"]);
+$arrangemntFormat = htmlspecialchars($_POST["format"]);
 
 if($category == "all"){
     $state = "";
@@ -35,19 +36,33 @@ c.desc
 FROM doctors d
 JOIN
 doc_category c 
-WHERE d.cat_id = c.cat_id $state LIMIT 2");
+WHERE d.cat_id = c.cat_id $state LIMIT 4");
 
 $stmt->execute();
 $getDoctors=$stmt->fetchAll();
 if($stmt->rowCount() > 0){
 
+
+if($arrangemntFormat =="column"){
+echo '<div class="md:mt-2">
+<div class="grid relative z-10 xl:grid-cols-2 gap-4">';
+}
+
 foreach($getDoctors as $doctor){
 	$docImage = !empty($doctor["image"]) ? "images/doctors/".$doctor["image"]: "images/avatar.svg";
+
+// check if localStorage is column or row based on user settings
+if($arrangemntFormat =="row"){
 ?>
+
+
+
+<!-- Doctors in Rows-->
+ 
 <div>
-<div class="panel relative transition-colors duration-300 hoverable px-4 lg:px-8 mb-3 flex items-center justify-between conversation-stats rounded-xl py-4 pl-5 pr-6 border-none" style="border-radius: 12px; height: 49px;">
+<div class="panel relative transition-colors duration-300 hoverable px-3 lg:px-8 mb-3 flex items-center justify-between conversation-stats rounded-xl py-4 pl-4 pr-2 border-none" style="border-radius: 12px; height: 49px;">
 <div>
-<p class="hidden text-xs font-normal text-card-200 lg:block">
+<p class="text-xs font-normal text-card-200 lg:block">
 <?php echo htmlspecialchars(substr($doctor["category"],0,-1));?>
 </p>
 </div>
@@ -58,11 +73,10 @@ foreach($getDoctors as $doctor){
 <path d="M0-3h19v19H0z"></path>
 <path class="fill-current" d="M9.5.562C5.542.562 2.161 3.025.792 6.5c1.37 3.475 4.75 5.937 8.708 5.937s7.339-2.462 8.708-5.937C16.838 3.025 13.458.562 9.5.562zm0 9.896A3.96 3.96 0 0 1 5.542 6.5 3.96 3.96 0 0 1 9.5 2.542 3.96 3.96 0 0 1 13.458 6.5 3.96 3.96 0 0 1 9.5 10.458zm0-6.333A2.372 2.372 0 0 0 7.125 6.5 2.372 2.372 0 0 0 9.5 8.875 2.372 2.372 0 0 0 11.875 6.5 2.372 2.372 0 0 0 9.5 4.125z"></path>
 </g>
-</svg><span class="text-xs font-semibold text-card-200">29</span></div>
-<div class="mr-4 flex items-center"><svg width="13" height="12" viewBox="0 0 15 14" class="mr-1 text-card-200">
-<path class="fill-current" fill-rule="evenodd" d="M7.5 0C3.344 0 0 2.818 0 6.286c0 1.987 1.094 3.757 2.781 4.914l.117 2.35c.022.438.338.58.704.32l2.023-1.442c.594.144 1.219.18 1.875.18 4.156 0 7.5-2.817 7.5-6.285C15 2.854 11.656 0 7.5 0z"></path>
-</svg><span class="text-xs font-semibold text-card-200">3</span></div>
-<a class="btn btn-base is-channel is-small px-6 text-2xs py-2 is-forge" href="profile.php?sp=<?php echo intval($doctor["id"]);?>" style="--channel-color: #5db3b7;">Show Profile</a>
+</svg><span class="text-xs font-semibold text-card-200">29</span>
+</div>
+
+<a class="btn btn-base is-channel is-small text-lg px-3 text-2xs py-2 is-forge" href="profile.php?sp=<?php echo intval($doctor["id"]);?>" style="--channel-color: #5db3b7;"><em class="icon ni ni-user-alt"></em></a>
 </div>
 </div>
 <div class="panel mb-6 forum-comment is-reply mb-3 rounded-xl px-0 py-0 transition-colors duration-300 text-white bg-card-500 relative light" data-js="forum-comment" id="forum-question">
@@ -76,6 +90,12 @@ foreach($getDoctors as $doctor){
 </div>
 </div>
 <div class="relative flex flex-1 flex-col">
+
+<div class="flex items-center text-3xs font-semibold uppercase leading-loose mb-1 2xl:inline-block" style="letter-spacing: 1.2px; display:flex;">
+<img src="images/med.png" alt="Med Specialist" width="20" class="mr-1">
+<span class="text-white">Medtrix</span>&nbsp;<span class="text-blue-400">Specialist</span>
+</div>
+
 <header class="mb-4 flex items-center justify-between">
 <div class="md:hidden">
 <a class="relative mr-4 block overflow-hidden rounded-lg" href="profile.php?sp=<?php echo intval($doctor["id"]);?>">
@@ -97,25 +117,115 @@ foreach($getDoctors as $doctor){
 </div>
 </div>
 </header>
-<h1 id="conversation-title" class="mb-4 rounded-xl px-6 py-4 text-lg font-normal bg-card-400 text-white font-kanit" style="word-break: break-word;"><?php echo htmlspecialchars($doctor["hospital"]);?></h1>
-<div class="content user-content text-grey-100">
-<div class="content user-content">
-<p class="text-card-200">
-<?php echo htmlspecialchars(substr($doctor["desc"], 0, 150)."..");?>
+
+<div id="conversation-title" class="mb-1 rounded-xl px-4 py-2 font-normal bg-card-400 font-kanit" style="word-break: break-word;">
+<em class="icon ni ni-map-pin"></em> <?php echo htmlspecialchars($doctor["hospital"]);?>
+<p class="text-2xs text-card-200">
+<?php echo htmlspecialchars(substr($doctor["desc"], 0, 70)."...");?>
 </p>
 </div>
-</div>
 
 </div>
 </div>
 </div>
 </div>
-<!-- Doctors -->
+<!--/ Doctors in Rows-->
 
 
-<?php } }else{
+
+<?php }else{ ?>
+
+
+<!-- Doctors in Column-->
+<div class="group">
+<header class="flex items-center gap-x-2 -mb-4">
+<div class="-translate-y-2.5">
+<img src="images/MedtrixNoBg.png" width="90px">
+</div>
+<div class="panel relative transition-colors duration-300 py-4 bg-card-600 has-custom-bg w-full rounded-2xl rounded-br-none pt-4 pb-8 px-4">
+
+<div class="flex items-center text-3xs font-semibold uppercase leading-loose mb-1 2xl:inline-block" style="letter-spacing: 1.2px;">
+<img src="images/med.png" alt="Med Specialist" width="20" class="mr-1">
+<span class="text-white">Medtrix</span>&nbsp;<span class="text-blue-400">Specialist</span>
+</div>
+
+<div class="flex gap-x-3">
+<a href="profile.php?sp=<?php echo intval($doctor["id"]);?>" class="bg-card-400 rounded-xl px-3 hover:text-white hover:bg-blue-400 py-1 text-grey-600 font-semibold text-xs w-full">
+<em class="icon ni ni-user"></em> &nbsp; <?php echo htmlspecialchars($doctor["title"]." ".$doctor["fname"]." ".$doctor["lname"]);?>
+</a>
+</div>
+
+</div>
+</header>
+<div
+class="panel relative transition-colors duration-300 rounded-xl grid auto-cols-auto md:grid-flow-col px-6 py-6 gap-3 lg:grid-flow-col lg:grid-cols-[auto,1fr] px-6 py-6"
+style="transform: translate3d(0px, 0px, 0px);">
+<a class="rounded-xl block overflow-hidden md:w-[200px] 2xl:h-[260px]" href="profile.php?sp=<?php echo intval($doctor["id"]);?>">
+<img loading="lazy" class="h-full w-full rounded-xl object-cover mix-blend-luminosity block group-hover:mix-blend-normal" src="<?php echo $docImage;?>" alt="<?php echo htmlspecialchars($doctor["title"]." ".$doctor["fname"]." ".$doctor["lname"]);?> Image">
+</a>
+<div class="grid min-w-[225px] xl:min-w-0 xl:min-w-0 mt-3">
+<dl class="space-y-2.5 mb-8">
+<div
+class="flex justify-between odd:bg-card-300/20 even:bg-card-300/50 rounded-xl lg:text-2xs py-1 px-3 w-full">
+<?php echo htmlspecialchars(substr($doctor["category"],0,-1));?>
+</div>
+<div class="flex justify-between odd:bg-card-300/20 even:bg-card-300/50 rounded-xl lg:text-2xs py-1 px-3 w-full">
+<?php echo htmlspecialchars($doctor["profession"]);?>
+</div>
+<div class="flex justify-between items-center odd:bg-card-300/20 even:bg-card-300/50 rounded-xl lg:text-2xs py-1 px-3 w-full">
+<dt>
+<em class="icon ni ni-location"></em> <?php echo htmlspecialchars($doctor["hospital"]);?>
+</dt>
+</div>
+<div class="flex justify-between odd:bg-card-300/20 even:bg-card-300/50 rounded-xl lg:text-2xs py-1 px-3 w-full">
+<dt>Qualification</dt>
+<dd class="text-right line-clamp-1" title="Apeldoorn">
+<?php echo htmlspecialchars($doctor["qualification"]);?></dd>
+</div>
+<!-- <div class="flex justify-between odd:bg-card-300/20 even:bg-card-300/50 rounded-xl lg:text-2xs py-1 px-3 w-full">
+<dt>Last Active</dt>
+<dd class="text-right line-clamp-1" title="1 day ago">1 day ago</dd>
+</div> -->
+</dl>
+<div class="mx-auto mt-auto flex items-stretch gap-x-2 lg:mx-0 lg:h-[32px]">
+<a href="https://twitter.com" target="_blank" rel="noreferrer" class="flex-center h-10 w-10 lg:h-8 lg:w-8 flex-shrink-0 rounded-md bg-card-400 bg-card-300">
+<svg class="transition-all w-full p-2 text-grey-600" viewBox="0 0 23 20" fill="none">
+<path d="m.759 0 8.24 11.018-8.292 8.958h1.866l7.26-7.843 5.866 7.843h6.35L13.347 8.338 21.064 0h-1.866l-6.686 7.223L7.11 0H.759zm2.745 1.375H6.42L19.305 18.6h-2.918L3.504 1.375z"
+class="fill-current"></path>
+</svg>
+</a>
+
+<a href="https://facebook.com" target="_blank" rel="noreferrer" class="flex-center h-10 w-10 lg:h-8 lg:w-8 flex-shrink-0 rounded-md bg-card-400 bg-card-300">
+<em class="ni ni-facebook-fill text-2xl"></em>
+</a>
+
+<a href="https://instagram.com" target="_blank" rel="noreferrer" class="flex-center h-10 w-10 lg:h-8 lg:w-8 flex-shrink-0 rounded-md bg-card-400 bg-card-300">
+<em class="ni ni-instagram text-2xl"></em>
+</a>
+<!-- 
+<a class="btn btn-base btn-secondary ml-auto h-auto rounded-md px-3 py-3 lg:text-2xs" href="https://hospitable.com/careers" target="_blank" rel="noreferrer">
+<span class="flex-center h-full flex-shrink-0 text-wrap leading-none">
+Website </span>
+</a> -->
+</div>
+</div>
+</div>
+</div>
+
+
+<!--/ Doctors in Column-->
+
+<?php }
+
+} 
+
+if($arrangemntFormat =="column"){
+    echo '</div></div>';
+    }
+
+}else{
     echo 
-    '<p class="inherits-color hidden translate-y-4 xl:translate-y-2 font-kanit md:text-3xl text-center lg:text-[75px] font-bold uppercase text-card-500 md:block">No Specialist</p>';
+    '<p class="inherits-color translate-y-4 xl:translate-y-2 font-kanit md:text-3xl text-center lg:text-[75px] font-bold uppercase text-card-500 md:block mb-2">No Result Found</p>';
 } 
 
 
@@ -123,7 +233,7 @@ foreach($getDoctors as $doctor){
 
 
 
-// disable next btn for pagination if doc row < 3
+// disable next btn for pagination if doc row < 5
 if($category == "all"){
     $checkState = "";
 }else{
@@ -134,7 +244,7 @@ if($category == "all"){
     $stmt->execute();
     $num = $stmt->fetch();
 
-    if($num["numrow"] < 3){ ?>
+    if($num["numrow"] < 5){ ?>
 
             <script>
             $('#next').prop('disabled', true);

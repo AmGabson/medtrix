@@ -17,6 +17,7 @@
 html,
 :host {
     line-height: 1.5;
+    text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -2960,7 +2961,8 @@ input:checked+.slider:before {
 }
 
 .plan-team-count {
-    -moz-appearance: textfield
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .plan-team-count::-webkit-inner-spin-button,

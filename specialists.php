@@ -203,15 +203,17 @@ include "include/sidebar.php";
 
 <aside class="hidden flex-none lg:sticky lg:block lg:self-start" style="width: 210px; top: 40px;">
 <div class="lg:sticky lg:text-center">
-<a href="dashboard/consultation.php" class="btn btn-base btn-primary mx-auto mb-3 block w-full" id="js-forum-reply-button">
+
+<a href="index.php" class="btn btn-base btn-secondary mb-3 w-full py-4">
+<span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> 
+<em class="icon ni ni-home-alt"></em> &nbsp; Back Home</span>
+</a>
+
+<a href="dashboard/consultation.php" class="btn btn-base btn-primary mx-auto mb-8 block w-full" id="js-forum-reply-button">
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> 
 Book Appointment </span>
 </a>
 
-<a href="specialists.php" class="btn btn-base btn-secondary mb-8 w-full py-4">
-<span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> 
-Dr. & Specialists</span>
-</a>
 
 
 <!-- Doctor Sidebar categories -->
@@ -244,7 +246,7 @@ foreach($docCats as $cat){
 <div class="text-white">
 <div class="mb-6 flex flex-wrap justify-center gap-x-4 md:mb-8 md:justify-between">
 <div class="flex flex-1 gap-x-4">
-<div class="md:hidden lg:block">
+<!-- <div class="md:hidden lg:block">
 <div class="select-wrap">
 <select class="flex cursor-pointer items-center rounded-xl px-5 py-3 text-xs leading-none bg-card-500 text-grey-600" style="width: 114px;">
 <option class="bg-card-900 text-grey-600" value="">Latest</option>
@@ -256,18 +258,19 @@ foreach($docCats as $cat){
 <path d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6z"></path>
 </svg>
 </div>
-</div>
+</div> -->
 
 <div>
 <div class="select-wrap">
-<select class="cursor-pointer rounded-xl px-5 text-xs bg-card-500 text-grey-600">
-<option class="bg-card-900 text-grey-600" value="all"> All </option>
-<option class="bg-card-900 text-grey-600" value="Medical Specialists">Medical Specialists</option>
-<option class="bg-card-900 text-grey-600" value="Surgical Specialists">Surgical Specialists</option>
-<option class="bg-card-900 text-grey-600" value="Primary Care Physicians">Primary Care Physicians</option>
-<option class="bg-card-900 text-grey-600" value="Diagnostic Specialists">Diagnostic Specialists</option>
-<option class="bg-card-900 text-grey-600" value="Mental Health Profs">Mental Health Profs</option>
-</select><svg width="20" height="16" class="fill-current text-grey-600" viewBox="0 0 10 16">
+<select class="cursor-pointer rounded-xl px-5 text-xs bg-card-500 text-grey-600 filterCat">
+<option class="bg-card-900 text-grey-600" value="all"  data-category="all"> All </option>
+<?php
+foreach($docCats as $cat){?>
+<option class="bg-card-900 text-grey-600 text-capitalize" value="<?php echo intval($cat["cat_id"]);?>">
+<?php echo htmlspecialchars($cat["category"]);?></option>
+<?php }?>
+</select>
+<svg width="20" height="16" class="fill-current text-grey-600" viewBox="0 0 10 16">
 <path d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6z"></path>
 </svg></div>
 </div>
@@ -275,31 +278,47 @@ foreach($docCats as $cat){
 
 
 
-<div class="hidden gap-x-3 md:flex md:items-center">
-<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200"><svg width="15" height="15" viewBox="0 0 15 15" class="mx-2">
+
+
+
+<div class="gap-x-3 flex md:items-center">
+<button class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400 showFormat" data-format="row"  data-category="all" id="rowFormat">
+<svg width="15" height="15" viewBox="0 0 15 15" class="mx-2">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="6" rx="2"></rect>
 <rect class="forum-excerpt-toggle-line" width="15" height="6" y="9" rx="2"></rect>
 </g>
-</svg></button><button disabled="" class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400"><svg width="15" height="15" viewBox="0 0 15 15" class="mx-2">
+</svg>
+</button>
+
+<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200 showFormat" data-category="all" data-format="column" id="columnFormat">
+<svg width="15" height="15" viewBox="0 0 15 15" class="mx-2" style="transform: rotate(-90deg);">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="4" rx="2"></rect>
 <rect class="forum-excerpt-toggle-line" width="8" height="4" y="11" rx="2"></rect>
 <rect class="forum-excerpt-toggle-line" width="15" height="4" y="5.5" rx="2"></rect>
 </g>
-</svg></button></div>
-<form class="search-form mt-5 flex h-[50px] md:h-[40px] w-full rounded-xl md:mt-0 md:w-52 bg-card-500" action="/discuss" autocomplete="off"><label for="q" class="flex px-4">
+</svg>
+</button>
+</div>
+
+
+<div class="search-form mt-5 flex h-[50px] md:h-[40px] w-full rounded-xl md:mt-0 md:w-52 bg-card-500"   autocomplete="off">
+<label for="q" class="flex px-4">
 <svg width="16" viewBox="0 0 15 15" class="text-grey-600">
 <g fill="none" fill-rule="evenodd">
 <path d="M-2-2h20v20H-2z"></path>
 <path class="fill-current" d="M10.443 9.232h-.638l-.226-.218A5.223 5.223 0 0 0 10.846 5.6 5.247 5.247 0 1 0 5.6 10.846c1.3 0 2.494-.476 3.414-1.267l.218.226v.638l4.036 4.028 1.203-1.203-4.028-4.036zm-4.843 0A3.627 3.627 0 0 1 1.967 5.6 3.627 3.627 0 0 1 5.6 1.967 3.627 3.627 0 0 1 9.232 5.6 3.627 3.627 0 0 1 5.6 9.232z"></path>
 </g>
-</svg><input id="q" name="q" class="ml-3 h-full w-full pt-0 text-sm lg:text-xs placeholder:text-grey-600" placeholder="Begin your search..."></label>
-</form>
+</svg>
+<input id="docSearch" name="docSearch" class="ml-3 h-full w-full pt-0 text-sm lg:text-xs placeholder:text-grey-600" placeholder="Begin your search...">
+</label>
+</div>
 </div>
 
 
 <div class="conversation-list">
+
 <!--Ajax Doctors List-->
 <div class="placeDoctorsHere"></div>
 
@@ -323,12 +342,14 @@ $num = $stmt->fetch();
 </button>
 <!-- next -->
 <button class="leading-4 flex h-8 items-center justify-center rounded-xl border border-transparent p-4 text-2xs font-semibold bg-card-600 hover:bg-card-400 hover:border-blue focus:border-blue focus:text-blue" 
-<?php if($num["numrow"] < 3){echo 'disabled';}?>  style="min-width: 40px;" id="next">Next</button>
+<?php if($num["numrow"] < 5){echo 'disabled';}?>  style="min-width: 40px;" id="next">Next</button>
 </div>
 </div>
 
 
 <!-- /Doctors -->
+
+
 <!-- show on small screen -->
 <div class="md:hidden mx-auto mt-8 flex flex-wrap items-center gap-2 self-center md:mt-0 md:max-w-2xs lg:mx-0 xl:max-w-[200px]">
 <div class="flex-1" style="flex-basis: 180px;">
@@ -344,35 +365,38 @@ $num = $stmt->fetch();
 </div>
 
 
-
-
-
+<!-- Floating chat Button -->
 <div class="participate-button fixed right-[20px] z-40 lg:idden bottom-[20px]">
-<button class="flex h-16 w-16 items-center justify-center rounded-full bg-blue-400 text-center shadow-lg hover:bg-blue-dark"><em class="icon ni ni-send"></em></button>
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-400 text-center shadow-lg hover:bg-blue-dark show-sidebar" data-tab="chatTab"><em class="icon ni ni-send"></em>
+</button>
 </div>
+
 </div>
 </div>
 
 <div class="sticky hidden h-screen max-w-[266px] 2xl:block" style="top: 40px;">
-<div class="max-h-screen space-y-4 overflow-auto pb-15"><a class="inherits-color block flex-1" href="/signup">
-<div class="panel relative transition-colors duration-300 hoverable rounded-xl mx-auto px-0 py-0 text-center" heading="" style="height: 240px; background: linear-gradient(148deg, rgb(33, 200, 246) -11%, rgba(33, 200, 246, 0) 42%); width: 100%;">
+<div class="max-h-screen space-y-4 overflow-auto pb-15 hide-scrollbar">
+    
+<div class="relative lg:max-w-sm flex flex-1 overflow-hidden rounded-xl" style="width: 100%; justify-content: center;">
+
+<div class="panel relative transition-colors duration-300 hoverable rounded-xl mx-auto px-0 py-0 text-center" heading="" style="height: 240px; background: linear-gradient(148deg, rgb(33, 200, 246) -11%, rgba(33, 200, 246, 0) 42%); width: 100%; padding-bottom:20px">
 <div class="flex h-full flex-col justify-between gap-y-3 rounded-2xl px-5 py-4 items-start" style="background-image: radial-gradient(circle at 0% 2%, rgb(0, 117, 255), rgb(31, 64, 106) 100%); border-radius: inherit;">
 <div class="flex flex-col items-center mr-15 text-left">
 <div class="flex-1">
 <img loading="lazy" class="absolute right-4 w-[174px]" src="images/strip.png" aria-hidden="">
-<img loading="lazy" class="absolute right-0 top-0" src="images/call.png" width="130" alt="Stethoscope">
+<img loading="lazy" class="absolute right-0 top-4" src="images/call.png" width="115" alt="Stethoscope">
 <h5 class="-mt-1 text-left font-semibold leading-tighter tracking-normal text-white text-2xl xl:text-[30px]">Talk to a Doctor</h5>
-<p class="mt-5 text-xs text-white">Try our online consultation service today!</p>
+<p class="mt-5 text-xs text-white">Try our online consultation service today! Get professional medical reply ASAP</p>
 </div>
 </div>
-<button class="btn btn-base btn-primary mb-2 w-full py-4">
+<a href="dashboard/consultation.php" class="btn btn-base btn-primary mb-1 w-full py-4">
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none">Sign Me Up!</span>
-</button>
-</div>
-</div>
 </a>
+</div>
+</div>
+</div>
 
-<a class="inherits-color block flex-1" href="/series/laravel-and-vite">
+<a class="inherits-color block flex-1" href="medicine.php">
 <div class="panel relative transition-colors duration-300 hoverable px-4 lg:px-8 py-4 rounded-xl flex flex-col items-center justify-between gap-y-2 text-center" style="height: 245px;">
 <div class="flex flex-col items-center">
 <div class="flex w-full flex-col items-center justify-between">
@@ -391,23 +415,42 @@ Leverage from our online sales of medicine. Get drugs delivered to your doorstep
 </a>
 
 
-<a class="inherits-color block flex-1" href="/series/laravel-and-vite">
-<div class="panel relative transition-colors duration-300 hoverable px-4 lg:px-8 py-4 rounded-xl flex flex-col items-center justify-between gap-y-2 text-center" style="height: 245px;">
+
+<div class="inherits-color block flex-1 tooltip-show">
+<div class="panel relative transition-colors duration-300 hoverable px-4 lg:px-8 py-4 rounded-xl flex flex-col items-center justify-between gap-y-2 text-center" style="height: 220px;">
 <div class="flex flex-col items-center">
 <div class="flex w-full flex-col items-center justify-between">
 <img loading="lazy" class="" src="images/sol.png" alt="SOLANA LOGO" width="85" height="85" style="border-radius: 10px;"></div>
 <div class="mt-3 flex-1">
 <h5 class="clamp one-line text-sm font-bold tracking-normal text-white">
-Leverage from SOLANA Today!
+Leverage from SOLANA!
 </h5>
 <p class="clamp two-lines mt-1 text-xs text-grey-100">
-Setup your Solana wallet!<br> Receive & Send SOL
+Make payment with SOL
 </p>
 </div>
 </div>
-<a href="#" class="w-full max-w-[200px] rounded-xl px-4 py-1 text-center text-2xs font-medium leading-loose bg-card-400 text-grey-600"> Create | Connect </a>
+
+<?php 
+//get solana Wallet
+$stmt=$pdo->prepare("SELECT * FROM solana WHERE userid = :userid");
+$stmt->bindParam("userid", $userid, PDO::PARAM_STR);
+$stmt->execute();
+$exists = $stmt->rowCount();
+$solana=$stmt->fetch();
+
+ if(isset($userid) && !empty($solana["balance"])){?>
+ <button class="w-full max-w-[200px] rounded-xl px-4 py-1 text-center text-2xs font-medium leading-loose bg-card-400 text-grey-600 sol-container"> Connected! View Details</button>
+
+<?php }elseif(isset($userid) && empty($solana["balance"])){?>
+    <button class="w-full max-w-[200px] rounded-xl px-4 py-1 text-center text-2xs font-medium leading-loose bg-card-400 text-grey-600 sol-container"> Connect Wallet</button>
+    
+<?php }else{?>
+    <a href="login.php?login=request" class="w-full max-w-[200px] rounded-xl px-4 py-1 text-center text-2xs font-medium leading-loose bg-card-400 text-grey-600"> Login to continue</a>
+<?php }?>
+
 </div>
-</a>
+</div>
 
 
 
@@ -450,6 +493,10 @@ $(document).ready(function() {
 //after load
 NProgress.done();
 });
+
+
+// localStorage.clear("docFormat");
+
 </script>
 
 

@@ -5,146 +5,75 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
+if(isset($_POST["docSearch"])){
+
+$category = "all";
+$keyword = htmlspecialchars($_POST["docSearch"]);
+$arrangemntFormat = htmlspecialchars($_POST["format"]);
+
+?>
 
 
-if(isset($_POST["pageNumber"])){
+<!-- Doctors List-->
+<?php
 
-    $catId = htmlspecialchars($_POST["catId"]);
-    $arrangemntFormat = htmlspecialchars($_POST["format"]);
+$keyword = "%{$keyword}%";
 
-    if($catId == "all"){
-        $checkState = "";
-    }else{
-        $checkState = "WHERE cat_id =". $catId;
-    }
+$stmt = $pdo->prepare("SELECT 
+        d.image,
+        d.title,
+        d.fname,
+        d.lname,
+        d.hospital,	
+        d.qualification,	
+        d.location,
+        d.profession,
+        d.id,
+        c.category,
+        c.desc
+    FROM 
+        doctors d 
+    JOIN 
+        doc_category c 
+    ON 
+        d.cat_id = c.cat_id 
+    WHERE 
+        d.profession LIKE :profession 
+    OR 
+        d.hospital LIKE :hospital 
+    OR 
+        d.fname LIKE :fname 
+    OR 
+        d.lname LIKE :lname 
+    OR 
+        c.category LIKE :category 
+    LIMIT 6
+");
 
+$stmt->bindParam(":profession", $keyword);
+$stmt->bindParam(":hospital", $keyword);
+$stmt->bindParam(":fname", $keyword);
+$stmt->bindParam(":lname", $keyword);
+$stmt->bindParam(":category", $keyword);
 
-    //Count total rows
-    $stmt = $pdo->prepare("SELECT COUNT(*) AS numrow FROM doctors $checkState");
-    $stmt->execute();
-    $num = $stmt->fetch();
-
-    $totalRow = $num["numrow"];         // Total rows on Table
-    $action = $_POST["action"];         //Contain either of Next or Previous Btn
-    $start = $_POST["pageNumber"];      //Fetch Start Point
-    $limit = 4;                         //Row Fetch Limit
- 
-
-    //IF NEXT BUTTON WAS CLICKED
-    if($action == "next"){
-
-    //Enable Prev Btn   
-    echo "<script>
-            $('#previous').prop('disabled', false);
-            $('#previous').removeClass('cursor-not-allowed');
-            $('#previous').addClass('hover:border-blue');
-            $('#previous').addClass('focus:border-blue');
-            $('#previous').addClass('focus:text-blue');
-        </script>";     
-    
-    //pagination start point = 2
-    $start += $limit;       
-  
-    //When all rows is viewed, prevent further scroll
-    if($start > $totalRow){
-     $start -= 2;
-    }
-    
-     //When all rows is viewed, disable
-    if($start + 4 > $totalRow){
-        echo "<script>
-            $('#next').prop('disabled', true);
-            $('#next').addClass('cursor-not-allowed');
-            $('#next').removeClass('hover:border-blue');
-            $('#next').removeClass('focus:border-blue');
-            $('#next').removeClass('focus:text-blue');
-            </script>";
-    }
-} 
-
-
-
-
-//IF PREVIOUS BUTTON WAS CLIKED
-elseif($action == "previous"){
-
-    //Enable next btn
-    echo "<script>
-            $('#next').prop('disabled', false);
-            $('#next').removeClass('cursor-not-allowed');
-            $('#next').addClass('hover:border-blue');
-            $('#next').addClass('focus:border-blue');
-            $('#next').addClass('focus:text-blue');
-        </script>";
-
-
-    //remove "2" from the start point
-    $start -= $limit;
-
-    //If we're back of first 2 rows, set start point to 0 top stop scroll
-    if($start < 0){
-        $start = 0;
-    };
-
-    //Disable previous button if back on the first 2 rows
-    if($start < 2){
-        echo "<script>
-            $('#previous').prop('disabled', true);
-            $('#previous').addClass('cursor-not-allowed');
-            $('#previous').removeClass('hover:border-blue');
-            $('#previous').removeClass('focus:border-blue');
-            $('#previous').removeClass('focus:text-blue');
-            </script>";
-    }
-}
-
-
-
-
-
-
-// <!-- Doctors List-->
-if($catId == "all"){
-    $state = "";
-}else{
-    $state = "AND c.cat_id =". $catId;
-}
-$stmt=$pdo->prepare("SELECT 
-d.image,
-d.title,
-d.fname,
-d.lname,
-d.hospital,	
-d.qualification,	
-d.location,
-d.profession,
-d.id,
-c.category,
-c.desc
-
-FROM doctors d
-JOIN
-doc_category c 
-WHERE d.cat_id = c.cat_id $state LIMIT :start, :limit");
-
-$stmt->bindParam(":start", $start, PDO::PARAM_INT);
-$stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
+try{
 $stmt->execute();
 $getDoctors=$stmt->fetchAll();
 
+if($stmt->rowCount() > 0){
 
 if($arrangemntFormat =="column"){
-    echo '<div class="md:mt-2">
-    <div class="grid relative z-10 xl:grid-cols-2 gap-4">';
-    }
-    
-    foreach($getDoctors as $doctor){
-        $docImage = !empty($doctor["image"]) ? "images/doctors/".$doctor["image"]: "images/avatar.svg";
-    
-    // check if localStorage is column or row based on user settings
-    if($arrangemntFormat =="row"){
+echo '<div class="md:mt-2">
+<div class="grid relative z-10 xl:grid-cols-2 gap-4">';
+}
 
+foreach($getDoctors as $doctor){
+	$docImage = !empty($doctor["image"]) ? "images/doctors/".$doctor["image"]: "images/avatar.svg";
+
+// check if localStorage is column or row based on user settings
+if($arrangemntFormat =="row"){
 ?>
+
 
 
 <!-- Doctors in Rows-->
@@ -178,8 +107,6 @@ if($arrangemntFormat =="column"){
 <?php echo htmlspecialchars($doctor["location"]);?></div>
 </div>
 </div>
-
-
 <div class="relative flex flex-1 flex-col">
 <div class="flex items-center text-3xs font-semibold uppercase leading-loose mb-1 2xl:inline-block" style="letter-spacing: 1.2px; display:flex;">
 <img src="images/med.png" alt="Med Specialist" width="20" class="mr-1">
@@ -190,7 +117,6 @@ if($arrangemntFormat =="column"){
 <div class="md:hidden">
 <a class="relative mr-4 block overflow-hidden rounded-lg" href="profile.php?sp=<?php echo intval($doctor["id"]);?>">
 <img src="<?php echo $docImage;?>" class="is-circle w-8 bg-white md:w-18" alt="<?php echo htmlspecialchars($doctor["title"]." ".$doctor["fname"]." ".$doctor["lname"]);?> Image" loading="lazy" style="border-radius: 9px;"></a></div>
-
 <div class="flex-1 text-left leading-none">
 <div class="flex items-center">
 <a class="mr-2 block text-lg font-bold text-white" href="profile.php?sp=<?php echo intval($doctor["id"]);?>">
@@ -215,6 +141,7 @@ if($arrangemntFormat =="column"){
 <?php echo htmlspecialchars(substr($doctor["desc"], 0, 70)."...");?>
 </p>
 </div>
+
 
 </div>
 </div>
@@ -308,22 +235,64 @@ Website </span>
 
 <!--/ Doctors in Column-->
 
-<?php } ?>
+<?php }
 
-
-
-<script>
-    //return scrolled position count to index page (Ajax callback)
-    $("#page").val(<?php echo $start; ?>);
-</script>
-
-
-<?php } 
+} 
 
 if($arrangemntFormat =="column"){
     echo '</div></div>';
     }
 
-}?>
+}else{
+    echo 
+    '<p class="inherits-color translate-y-4 xl:translate-y-2 font-kanit md:text-3xl text-center lg:text-[75px] font-bold uppercase text-card-500 md:block mb-2">No Result Found</p>';
+} 
+
+}catch(PDOException $e){
+    echo "Error Occured: " . $e->getMessage();
+}
 
 
+
+
+// disable next btn for pagination if doc row < 5
+if($category == "all"){
+    $checkState = "";
+}else{
+    $checkState = "WHERE cat_id =". $category ;
+}
+    //Count total rows
+    $stmt = $pdo->prepare("SELECT COUNT(*) AS numrow FROM doctors $checkState");
+    $stmt->execute();
+    $num = $stmt->fetch();
+
+    if($num["numrow"] < 5){ ?>
+
+            <script>
+            $('#next').prop('disabled', true);
+            $('#next').addClass('cursor-not-allowed');
+            $('#next').removeClass('hover:border-blue');
+            $('#next').removeClass('focus:border-blue');
+            $('#next').removeClass('focus:text-blue');
+            </script>
+
+  <?php }else{ ?>
+
+        <script>
+        $('#next').prop('disabled', false);
+        $('#next').removeClass('cursor-not-allowed');
+        $('#next').addClass('hover:border-blue');
+        $('#next').addClass('focus:border-blue');
+        $('#next').addClass('focus:text-blue');
+        </script>
+
+<?php  } } ?>
+
+<!-- Disable previous btn once new category is clicked -->
+<script>
+$('#previous').prop('disabled', true);
+$('#previous').addClass('cursor-not-allowed');
+$('#previous').removeClass('hover:border-blue');
+$('#previous').removeClass('focus:border-blue');
+$('#previous').removeClass('focus:text-blue');
+</script>

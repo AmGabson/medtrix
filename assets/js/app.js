@@ -181,11 +181,20 @@ $('.sol-container').click(function() {
 
 // Load Doctors categories on page load
 $(document).ready(function(){
+
+  //get arrangement format(row/column) from localstorage based on visitor's settings
+  if(localStorage.getItem("docFormat")){
+    var format = localStorage.getItem("docFormat");
+  }else{
+  var format = "row";
+  }
+
+
   let category = "all";
   $.ajax({
       url: "fetch/fetchDocCategory.php",
       type: "POST",
-      data: {category:category},
+      data: {category:category, format:format},
       beforeSend:function(){},
       success:function(data){
           $(".placeDoctorsHere").html(data);
@@ -193,9 +202,18 @@ $(document).ready(function(){
       }
   });
 
+  
+
 // Get Category Id when a category is clicked and fetch category from ajax page
-$(".selectCat").click(function(){
+$(".selectCat, .showFormat").click(function(){
 let category = $(this).data("category");
+
+  //get arrangement format(row/column) from localstorage based on visitor's settings
+  if(localStorage.getItem("docFormat")){
+     var format = localStorage.getItem("docFormat");
+  }else{
+    var format = "row";
+  }
 
   //add Cat Id to pagination 
   $("#catId").val(category);
@@ -211,11 +229,15 @@ $(".selectCat").removeClass("bg-card-700");
 $(this).removeClass("text-white");
 $(this).addClass("text-blue-400");
 $(this).addClass("bg-card-700");
+
+$(".showFormat").removeClass("text-blue-400");
+$(".showFormat").addClass("text-white");
+$(".showFormat").removeClass("bg-card-700");
   
   $.ajax({
       url: "fetch/fetchDocCategory.php",
       type: "POST",
-      data: {category:category},
+      data: {category:category, format:format},
       beforeSend:function(){
         NProgress.start();
       },
@@ -235,6 +257,98 @@ $(this).addClass("bg-card-700");
   });
 });
 
+
+
+
+
+
+
+
+
+// When user use drop filter select (to Select Category)
+$(".filterCat").change(function(){
+  let category = $(".filterCat").val();
+  
+    //get arrangement format(row/column) from localstorage based on visitor's settings
+    if(localStorage.getItem("docFormat")){
+       var format = localStorage.getItem("docFormat");
+    }else{
+      var format = "row";
+    }
+  
+    //add Cat Id to pagination 
+    $("#catId").val(category);
+
+    $.ajax({
+        url: "fetch/fetchDocCategory.php",
+        type: "POST",
+        data: {category:category, format:format},
+        beforeSend:function(){
+          NProgress.start();
+        },
+        success:function(data){
+            NProgress.done();
+            $(".placeDoctorsHere").html(data);
+            // console.log(data);
+  
+            // Scroll to div
+            $('html, body').animate({
+              scrollTop: $("#forum-main").offset().top
+          }, 500);
+  
+  
+        }
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+// Search Doctors
+$("#docSearch").keyup(function() {
+
+  var docSearch = $(this).val();
+  
+    //get arrangement format(row/column) from localstorage based on visitor's settings
+    if(localStorage.getItem("docFormat")){
+       var format = localStorage.getItem("docFormat");
+    }else{
+      var format = "row";
+    }
+  
+    //add Cat Id to pagination 
+    $("#catId").val("all");
+
+    $.ajax({
+        url: "fetch/docSearch.php",
+        type: "POST",
+        data: {docSearch:docSearch, format:format},
+        beforeSend:function(){
+          NProgress.start();
+        },
+        success:function(data){
+            NProgress.done();
+            $(".placeDoctorsHere").html(data);
+            console.log(data);
+  
+            // Scroll to div
+          //   $('html, body').animate({
+          //     scrollTop: $("#forum-main").offset().top
+          // }, 500);
+  
+  
+        }
+    });
+  });
+
+
+
 });
 
 
@@ -248,6 +362,13 @@ $(this).addClass("bg-card-700");
 //if next or previous btn was cliked
 $("#next, #previous").click(function(){
 
+    //get arrangement format(row/column) from localstorage based on visitor's settings
+    if(localStorage.getItem("docFormat")){
+      var format = localStorage.getItem("docFormat");
+   }else{
+     var format = "row";
+   }
+
   let pageNumber = $("#page").val();
   let catId =  $("#catId").val();
   let action = this.id;
@@ -255,7 +376,7 @@ $("#next, #previous").click(function(){
   $.ajax({
       url: 'fetch/docPagination.php',
       type: 'POST',
-      data: {pageNumber:pageNumber, action:action, catId:catId},
+      data: {pageNumber:pageNumber, action:action, catId:catId, format:format},
       beforeSend: function(){
         NProgress.start();
       },
@@ -596,7 +717,7 @@ $(document).keydown(function(event) {
 
 $(document).keydown(function(event) {
   // Check if the pressed the key "s" 
-  if (event.which === 83) {
+  if (event.which === 83 && event.shiftKey) {
       // Trigger the click event on the button
       $('.openSearch').trigger("click");
   }
@@ -627,3 +748,42 @@ $(document).keydown(function(event) {
     $("."+tab).removeClass("display-none");
   });
   
+
+
+
+
+
+
+
+
+
+
+
+  // Doctor/specialists display format
+  $(".showFormat").click(function(){
+    let docFormat = $(this).data("format");
+
+    $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
+    $(".showFormat").addClass("bg-card-500 text-card-200");
+    $(this).removeClass("bg-card-500 text-card-200");
+    $(this).addClass("hover:bg-card-600 is-active bg-blue-400");
+    
+    //store format in browser localstorage
+    localStorage.setItem("docFormat", docFormat);
+  });
+
+  //get from localstorage asign the active btn
+  if(localStorage.getItem("docFormat") == "row" || localStorage.getItem("docFormat") == null){
+    $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
+    $(".showFormat").addClass("bg-card-500 text-card-200");
+
+    $("#rowFormat").removeClass("bg-card-500 text-card-200");
+    $("#rowFormat").addClass("hover:bg-card-600 is-active bg-blue-400");
+  }
+  else{
+    $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
+    $(".showFormat").addClass("bg-card-500 text-card-200");
+
+    $("#columnFormat").removeClass("bg-card-500 text-card-200");
+    $("#columnFormat").addClass("hover:bg-card-600 is-active bg-blue-400");
+  }

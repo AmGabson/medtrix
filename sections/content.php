@@ -105,23 +105,23 @@ class="bg-gradient-to-b from-transparent via-transparent via-60% to-card-500 abs
 <div
 class="relative hidden before:absolute before:top-[49%] before:ml-[2%] before:block before:h-[3px] before:w-[96%] before:bg-card-300 md:block py-2">
 <div class="relative z-10 flex w-full flex-nowrap justify-between gap-3">
-<a transparent="" class="flex h-auto rounded-xl bg-card-600 px-3 py-2 font-grotesk text-xs font-normal transition-colors duration-300 hover:bg-card-500"
+<div class="flex h-auto rounded-xl bg-card-600 px-3 py-2 font-grotesk text-xs font-normal transition-colors duration-300 hover:bg-card-500"
 href="/path">
-<span class="text-blue-400">MedTrixLab </span>
+<span class="text-blue-400">MedTrix </span>
 <span class="relative text-grey-600">&nbsp;Path</span>
-</a>
+</div>
 
 <a transparent="" class="flex h-auto flex-wrap rounded-xl border bg-card-600 px-3 py-2 font-grotesk text-xs font-normal transition-colors duration-300 hover:bg-card-500 border-blue-400"
-title="Start by creating account" href="">
-<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Register | Create Profile</span></a>
+title="Start by creating account" href="register.php">
+<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Sign up for free</span></a>
 
 <a transparent="" class="flex h-auto flex-wrap rounded-xl border bg-card-600 px-3 py-2 font-grotesk text-xs font-normal transition-colors duration-300 hover:bg-card-500 border-transparent"
-title="Tell us the symptoms" href="">
-<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Identify your health Status</span></a>
+title="Tell us the symptoms" href="dashboard/kyc.php">
+<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Update KYC & Profile</span></a>
 
 <a transparent="" class="flex h-auto flex-wrap rounded-xl border bg-card-600 px-3 py-2 font-grotesk text-xs font-normal transition-colors duration-300 hover:bg-card-500 border-transparent"
-title="Live consultancy" href="">
-<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Book Live | Chat consultancy</span></a></div>
+title="Live consultancy" href="dashboard/consultation.php">
+<span class="inline-block max-w-[205px] overflow-hidden overflow-ellipsis whitespace-nowrap text-grey-600">Book Live Consultation</span></a></div>
 </div>
 
 <div class="panel relative transition-colors duration-300 py-4 rounded-xl px-8" id="series-details">
@@ -356,23 +356,21 @@ style="height: 50px;"><span class="flex-shrink-0 text-grey-600 text-sm">Services
 <div class="relative lg:max-w-sm flex flex-1 overflow-hidden rounded-xl"
 style="width: 100%; height: 426px; justify-content: center;">
 
-<a class="block" href="register.php">
 <div class="panel relative transition-colors duration-300 hoverable rounded-xl mx-auto px-0 py-0 text-center" heading="" style="height: 240px; background: linear-gradient(148deg, rgb(33, 200, 246) -11%, rgba(33, 200, 246, 0) 42%); width: 100%;">
 <div class="flex h-full flex-col justify-between gap-y-3 rounded-2xl px-5 py-4 items-start" style="background-image: radial-gradient(circle at 0% 2%, rgb(0, 117, 255), rgb(31, 64, 106) 100%); border-radius: inherit;">
 <div class="flex flex-col items-center mr-15 text-left">
 <div class="flex-1">
 <img loading="lazy" class="absolute right-4 w-[174px]" src="images/strip.png" aria-hidden="">
-<img loading="lazy" class="absolute right-0 top-0" src="images/call.png" width="130" alt="Stethoscope">
+<img loading="lazy" class="absolute right-0 top-4" src="images/call.png" width="115" alt="Stethoscope">
 <h5 class="-mt-1 text-left font-semibold leading-tighter tracking-normal text-white text-2xl xl:text-[30px]">Talk to a Doctor</h5>
 <p class="mt-5 text-xs text-white">Try our online consultation service today! Get professional medical reply ASAP</p>
 </div>
 </div>
-<button class="btn btn-base btn-primary mb-2 w-full py-4">
+<a href="dashboard/consultation.php" class="btn btn-base btn-primary mb-2 w-full py-4">
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none">Sign Me Up!</span>
-</button>
-</div>
-</div>
 </a>
+</div>
+</div>
 </div>
 
 
@@ -419,12 +417,12 @@ href="" transparent="" target="_blank">
 
 
 
-<div class="btn btn-base btn-secondary max-w-none bg-card-600 hide-mobile mt-2">
+<!-- <div class="btn btn-base btn-secondary max-w-none bg-card-600 hide-mobile mt-2">
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> Payment Methods
 </span>
-</div>
+</div> 
 
-<!-- <div class="bg-secondary">
+<div class="bg-secondary">
 <dl class="flex md:ml-1 gap-8 justify-center">
 <div>
 <dd class="text-center">
@@ -449,23 +447,9 @@ href="" transparent="" target="_blank">
 
 
 
-<a class="inherits-color block flex-1" href="/series/laravel-and-vite">
-<div class="panel relative transition-colors duration-300 hoverable px-4 lg:px-8 py-4 rounded-xl flex flex-col items-center justify-between gap-y-2 text-center" style="height: 245px;">
-<div class="flex flex-col items-center">
-<div class="flex w-full flex-col items-center justify-between">
-<img loading="lazy" class="" src="images/sol.png" alt="SOLANA LOGO" width="85" height="85" style="border-radius: 10px;"></div>
-<div class="mt-3 flex-1">
-<h5 class="clamp one-line text-sm font-bold tracking-normal text-white">
-Leverage from SOLANA Today!
-</h5>
-<p class="clamp two-lines mt-1 text-xs text-grey-100">
-Setup your Solana wallet!<br> Receive & Send SOL
-</p>
+<div class="inherits-color block flex-1 tooltip-show">
+<img src="images/campaign.png" style="width:100%; max-height:280px;border-radius:10px">
 </div>
-</div>
-<a href="#" class="w-full max-w-[200px] rounded-xl px-4 py-1 text-center text-2xs font-medium leading-loose bg-card-400 text-grey-600"> Create | Connect </a>
-</div>
-</a>
 
 
 
@@ -517,13 +501,6 @@ echo htmlspecialchars($row["fullName"]);
 </header>
 
 <?php 
-//get solana Wallet
-$stmt=$pdo->prepare("SELECT * FROM solana WHERE userid = :userid");
-$stmt->bindParam("userid", $userid, PDO::PARAM_STR);
-$stmt->execute();
-$exists = $stmt->rowCount();
-$solana=$stmt->fetch();
-
 //get Token and account Bal
 $stmt=$pdo->prepare("SELECT * FROM account WHERE userid = :userid");
 $stmt->bindParam("userid", $userid, PDO::PARAM_STR);

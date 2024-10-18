@@ -43,7 +43,7 @@ rel="stylesheet">
 <link rel="stylesheet" href="assets/css/Header-H.css">
 <link rel="stylesheet" href="assets/css/LazyImg-7.css">
 <link id="skin-default" rel="stylesheet" href="assets/css/ni-icons.css">
-<link rel="stylesheet" href="assets/css/app-_P3ukd9A.css">
+<!-- <link rel="stylesheet" href="assets/css/app-_P3ukd9A.css"> -->
 
 
 

@@ -22,7 +22,7 @@ include "include/modals.php";
 <div id="header-logo-arrow"
 class="mr-4 flex lg:mr-8 2xl:mr-0 2xl:w-1/4 flex-shrink-0 has-animation">
 <a class="relative inline-block cursor-pointer leading-none" href="index.php">
-<img src="images/logo.png" width="100" alt="MedtrixLab Logo"></a>
+<img src="images/logo.png" width="140" alt="MedtrixLab Logo"></a>
 </div>
 
 <div class="navbar-links relative mr-auto hidden font-grotesk lg:flex lg:justify-around 2xl:mr-0 xl:w-full"
