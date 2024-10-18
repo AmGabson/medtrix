@@ -282,7 +282,7 @@ foreach($docCats as $cat){?>
 
 
 <div class="gap-x-3 flex md:items-center">
-<button class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400 showFormat" data-format="row"  data-category="all" id="rowFormat">
+<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200 showFormat" data-format="row"  data-category="all" id="rowFormat">
 <svg width="15" height="15" viewBox="0 0 15 15" class="mx-2">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="6" rx="2"></rect>
@@ -291,7 +291,7 @@ foreach($docCats as $cat){?>
 </svg>
 </button>
 
-<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200 showFormat" data-category="all" data-format="column" id="columnFormat">
+<button class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400 showFormat" data-category="all" data-format="column" id="columnFormat">
 <svg width="15" height="15" viewBox="0 0 15 15" class="mx-2" style="transform: rotate(-90deg);">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="4" rx="2"></rect>
