@@ -1,1 +1,11 @@
 .DS_Store
+assets/.DS_Store
+assets/js/.DS_Store
+conference/.DS_Store
+conference/static/.DS_Store
+dashboard/paymentMethods/.DS_Store
+dashboard/paymentMethods/card/.DS_Store
+games/.DS_Store
+games/MemoryCards/.DS_Store
+games/MemoryCards/images/.DS_Store
+images/.DS_Store
