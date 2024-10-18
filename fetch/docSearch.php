@@ -181,7 +181,7 @@ if($arrangemntFormat =="row"){
 class="panel relative transition-colors duration-300 rounded-xl grid auto-cols-auto md:grid-flow-col px-6 py-6 gap-3 lg:grid-flow-col lg:grid-cols-[auto,1fr] px-6 py-6"
 style="transform: translate3d(0px, 0px, 0px);">
 <a class="rounded-xl block overflow-hidden md:w-[200px] 2xl:h-[260px]" href="profile.php?sp=<?php echo intval($doctor["id"]);?>">
-<img loading="lazy" class="h-full w-full rounded-xl object-cover mix-blend-luminosity block group-hover:mix-blend-normal" src="<?php echo $docImage;?>" alt="<?php echo htmlspecialchars($doctor["title"]." ".$doctor["fname"]." ".$doctor["lname"]);?> Image">
+<img loading="lazy" class="h-full w-full rounded-xl object-cover mix-blend-luminosity block group-hover:mix-blend-normal" src="<?php echo $docImage;?>" alt="<?php echo htmlspecialchars($doctor["title"]." ".$doctor["fname"]." ".$doctor["lname"]);?> Image" style="max-height:260.92px">
 </a>
 <div class="grid min-w-[225px] xl:min-w-0 xl:min-w-0 mt-3">
 <dl class="space-y-2.5 mb-8">

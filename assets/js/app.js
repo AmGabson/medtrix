@@ -186,7 +186,7 @@ $(document).ready(function(){
   if(localStorage.getItem("docFormat")){
     var format = localStorage.getItem("docFormat");
   }else{
-  var format = "row";
+  var format = "column";
   }
 
 
@@ -212,7 +212,7 @@ let category = $(this).data("category");
   if(localStorage.getItem("docFormat")){
      var format = localStorage.getItem("docFormat");
   }else{
-    var format = "row";
+    var format = "column";
   }
 
   //add Cat Id to pagination 
@@ -273,7 +273,7 @@ $(".filterCat").change(function(){
     if(localStorage.getItem("docFormat")){
        var format = localStorage.getItem("docFormat");
     }else{
-      var format = "row";
+      var format = "column";
     }
   
     //add Cat Id to pagination 
@@ -319,7 +319,7 @@ $("#docSearch").keyup(function() {
     if(localStorage.getItem("docFormat")){
        var format = localStorage.getItem("docFormat");
     }else{
-      var format = "row";
+      var format = "column";
     }
   
     //add Cat Id to pagination 
@@ -366,7 +366,7 @@ $("#next, #previous").click(function(){
     if(localStorage.getItem("docFormat")){
       var format = localStorage.getItem("docFormat");
    }else{
-     var format = "row";
+     var format = "column";
    }
 
   let pageNumber = $("#page").val();
@@ -773,17 +773,17 @@ $(document).keydown(function(event) {
   });
 
   //get from localstorage asign the active btn
-  if(localStorage.getItem("docFormat") == "row" || localStorage.getItem("docFormat") == null){
-    $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
-    $(".showFormat").addClass("bg-card-500 text-card-200");
-
-    $("#rowFormat").removeClass("bg-card-500 text-card-200");
-    $("#rowFormat").addClass("hover:bg-card-600 is-active bg-blue-400");
-  }
-  else{
+  if(localStorage.getItem("docFormat") == "column" || localStorage.getItem("docFormat") == null){
     $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
     $(".showFormat").addClass("bg-card-500 text-card-200");
 
     $("#columnFormat").removeClass("bg-card-500 text-card-200");
     $("#columnFormat").addClass("hover:bg-card-600 is-active bg-blue-400");
+  }
+  else{
+    $(".showFormat").removeClass("hover:bg-card-600 is-active bg-blue-400");
+    $(".showFormat").addClass("bg-card-500 text-card-200");
+
+    $("#rowFormat").removeClass("bg-card-500 text-card-200");
+    $("#rowFormat").addClass("hover:bg-card-600 is-active bg-blue-400");
   }

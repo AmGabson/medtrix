@@ -8,9 +8,9 @@
 <aside class="hidden flex-none lg:sticky lg:block lg:self-start" style="width: 210px; top: 40px;">
 <div class="lg:sticky lg:text-center">
 
-<a href="index.php" class="btn btn-base btn-secondary mb-3 w-full py-4">
+<a href="specialists.php" class="btn btn-base btn-secondary mb-3 w-full py-4">
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> 
-<em class="icon ni ni-home-alt"></em> &nbsp; Back Home</span>
+<em class="icon ni ni-users"></em> &nbsp; All Specialists</span>
 </a>
 
 <a href="dashboard/consultation.php" class="btn btn-base btn-primary mx-auto mb-8 block w-full" id="js-forum-reply-button">
@@ -91,7 +91,7 @@ foreach($docCats as $cat){?>
 
 
 <div class="gap-x-3 flex md:items-center">
-<button class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400 showFormat" data-format="row"  data-category="all" id="rowFormat">
+<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200 showFormat" data-format="row"  data-category="all" id="rowFormat">
 <svg width="15" height="15" viewBox="0 0 15 15" class="mx-2">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="6" rx="2"></rect>
@@ -100,7 +100,7 @@ foreach($docCats as $cat){?>
 </svg>
 </button>
 
-<button class="forum-excerpt-toggle py-2 rounded-lg bg-card-500 text-card-200 showFormat" data-category="all" data-format="column" id="columnFormat">
+<button class="forum-excerpt-toggle py-2 rounded-lg hover:bg-card-600 is-active bg-blue-400 showFormat" data-category="all" data-format="column" id="columnFormat">
 <svg width="15" height="15" viewBox="0 0 15 15" class="mx-2" style="transform: rotate(-90deg);">
 <g class="forum-excerpt-toggle-lines fill-current" fill-rule="evenodd">
 <rect class="forum-excerpt-toggle-line" width="15" height="4" rx="2"></rect>
@@ -161,15 +161,15 @@ $num = $stmt->fetch();
 <!-- show on small screen -->
 <div class="md:hidden mx-auto mt-8 flex flex-wrap items-center gap-2 self-center md:mt-0 md:max-w-2xs lg:mx-0 xl:max-w-[200px]">
 <div class="flex-1" style="flex-basis: 180px;">
-<a href="login.php?login=request" class="btn btn-base btn-primary has-icon py-4 w-full">
+<a href="dashboard/consultation.php" class="btn btn-base btn-primary has-icon py-4 w-full">
 <em class="ni ni-user-list" style="font-size: large;"></em> &nbsp;&nbsp;
 <span class="flex-center h-full flex-shrink-0 text-wrap leading-none"> Book Appointment </span>
 </a></div>
 <div class="flex-1" style="flex-basis: 180px;">
-<button class="btn btn-base btn-secondary has-icon py-4 w-full">
-<em class="icon ni ni-home-alt" style="font-size: large;"></em> &nbsp;&nbsp; 
-<span class="flex-center h-full flex-shrink-0 text-wrap leading-none">Back Home </span>
-</button></div></div>
+<a href="specialists.php" class="btn btn-base btn-secondary has-icon py-4 w-full">
+<em class="icon ni ni-users" style="font-size: large;"></em> &nbsp;&nbsp; 
+<span class="flex-center h-full flex-shrink-0 text-wrap leading-none">All Specialists </span>
+</a></div></div>
 </div>
 
 
